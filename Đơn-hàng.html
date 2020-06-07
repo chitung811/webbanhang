@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Quản trị - Website bán hàng</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link href="./assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/libs/css/style.css">
+    <link rel="stylesheet" href="./assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="./assets/vendor/charts/chartist-bundle/chartist.css">
+    <link rel="stylesheet" href="./assets/vendor/charts/morris-bundle/morris.css">
+    <link rel="stylesheet" href="./assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="./assets/vendor/charts/c3charts/c3.css">
+    <link rel="stylesheet" href="./assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+
+</head>
+<style type="text/css">
+    body 
+    {
+        font-family: 'Roboto Condensed', sans-serif;
+    }
+</style>
+<body>
+     <!-- ============================================================== -->
+    <!-- main wrapper -->
+    <!-- ============================================================== -->
+    <div class="dashboard-main-wrapper">
+        <!-- ============================================================== -->
+        <!-- navbar -->
+        <!-- ============================================================== -->
+        <div class="dashboard-header">
+            <nav class="navbar navbar-expand-lg bg-white fixed-top">
+                <a class="navbar-brand" href="index.php">KGU&copy;2019</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto navbar-right-top">
+                        <li class="nav-item">
+                            <div id="custom-search" class="top-search-bar">
+                                <input class="form-control" type="text" placeholder="Tìm kiếm..">
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown notification">
+                            <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-history"></i><!--<span class='indicator'></span>--></a>
+                            <ul class="dropdown-menu dropdown-menu-right notification-dropdown">
+                                <li>
+                                    <div class="notification-title"> Lịch sử </div>
+                                    <div class="notification-list">
+                                        <div class="list-group">
+                      
+                                            <a href="history.php" class="list-group-item list-group-item-action">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src=""></div>
+                                                    <div class="notification-list-user-block">
+                                                        <!--
+                                                        <span class="notification-list-user-name">Jeremy Rakestraw</span>-->
+                                                        
+                                                        <div class="notification-date">
+                                                      
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                           
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="list-footer"> <a href="history.php">Xem tất cả</a></div>
+                                </li>
+                            </ul>
+                        </li>
+                        <!--
+                       
+                        -->
+                        <li class="nav-item dropdown nav-user">
+                            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="public/images/avatars/<?php echo $avatar; ?>" alt="" class="user-avatar-md rounded-circle"></a>
+                            <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
+                                <div class="nav-user-info">
+                                    <h5 class="mb-0 text-white nav-user-name" style="font-family: 'Roboto Condensed', sans-serif;"></h5>
+                                    <span class="status"></span><span class="ml-2">Online</span>
+                                </div>
+                                <a class="dropdown-item" href="thong-tin-tai-khoan.php"><i class="fas fa-user mr-2"></i>Thông tin cá nhân</a>
+                                <a class="dropdown-item" href="doi-mat-khau.php"><i class="fas fa-cog mr-2"></i>Đổi mật khẩu</a>
+                                <a class="dropdown-item" href="dang-xuat.php"><i class="fas fa-power-off mr-2"></i>Đăng xuất</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!-- ============================================================== -->
+        <!-- end navbar -->
+        <!-- ============================================================== -->
+          <!-- ============================================================== -->
+        <!-- wrapper  -->
+        <!-- ============================================================== -->
+
+            <!-- ============================================================== -->
+            <div class="nav-left-sidebar sidebar-dark">
+                <div class="menu-list">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <a class="d-xl-none d-lg-none" href="#">Danh mục</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav flex-column">
+                                <li class="nav-divider">
+                                    Danh mục
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-5" aria-controls="submenu-5"><i class="fas fa-laptop"></i>Trang chính</a>
+                                    <div id="submenu-5" class="collapse submenu" style="">
+                                        <ul class="nav flex-column">
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="../../index.php" target="_blank">Đến website</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="index.php">Thống kê</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="don-hang.php">Danh sách hóa đơn</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="san-pham.php">Danh sách sản phẩm</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="tai-khoan.php">Danh sách tài khoản</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="nav-item ">
+                                    <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1" aria-controls="submenu-1"><i class="fab fa-sketch"></i>Giao diện <span class="badge badge-success">6</span></a>
+                                    <div id="submenu-1" class="collapse submenu" style="">
+                                        <ul class="nav flex-column">
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-1" aria-controls="submenu-1-1">Đầu trang</a>
+                                                <div id="submenu-1-1" class="collapse submenu" style="">
+                                                    <ul class="nav flex-column">
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" href="logo.php">Logo</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" href="slider.php">Slider</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-3" aria-controls="submenu-1-3">Chân trang</a>
+                                                <div id="submenu-1-3" class="collapse submenu" style="">
+                                                    <ul class="nav flex-column">
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" href="footer.php">Cấu hình</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2"><i class="fas fa-box-open"></i>Sản phẩm</a>
+                                    <div id="submenu-2" class="collapse submenu" style="">
+                                        <ul class="nav flex-column">
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="loai-san-pham.php">Tạo loại sản phẩm</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="upload-san-pham.php">Upload sản phẩm</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="san-pham.php">Danh sách sản phẩm</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-3" aria-controls="submenu-3"><i class="far fa-newspaper"></i>Bài viết</a>
+                                    <div id="submenu-3" class="collapse submenu" style="">
+                                        <ul class="nav flex-column">
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="loai-blog.php">Tạo loại bài viết</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="upload-blog.php">Đăng bài mới</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="blog.php">Danh sách bài viết</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="nav-item ">
+                                    <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-4" aria-controls="submenu-4"><i class="fas fa-file-invoice"></i>Đơn hàng</a>
+                                    <div id="submenu-4" class="collapse submenu" style="">
+                                        <ul class="nav flex-column">
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="don-hang.php">Quản lý đơn hàng</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="van-chuyen.php">Đang vận chuyển</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="don-hang-thu-hoi.php">Đơn hàng thu hồi</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="don-hang-thanh-cong.php">Đơn hàng thành công</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                
+                                <li class="nav-divider">
+                                    Tài khoản
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-user"></i> Tài khoản </a>
+                                    <div id="submenu-6" class="collapse submenu" style="">
+                                        <ul class="nav flex-column">
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="thong-tin-tai-khoan.php">Thông tin tài khoản</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="tai-khoan.php">Danh sách tài khoản</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="doi-mat-khau.php">Đổi mật khẩu</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="dang-xuat.php">Đăng xuất</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- end left sidebar -->
+            <!-- ============================================================== -->
+        <div class="dashboard-wrapper">
+            <div class="dashboard-ecommerce">
+                <div class="container-fluid dashboard-content " >
+                    <!-- ============================================================== -->
+                    <!-- pageheader  -->
+                    <!-- ============================================================== -->
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="page-header" >
+                                <h2 class="pageheader-title" style="font-family: 'Roboto Condensed', sans-serif;">Quản trị website bán hàng</h2>
+                                <!--
+                                <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus vel mauris facilisis faucibus at enim quis massa lobortis rutrum.</p>
+                                -->
+                                <div class="page-breadcrumb">
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item"><a href="index.php" class="breadcrumb-link">Trang chính</a></li>
+                                            <li class="breadcrumb-item"><a href="don-hang.php" class="breadcrumb-link">Đơn hàng</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">Quản lý đơn hàng</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ============================================================== -->
+                    <!-- end pageheader  -->
+                    <!-- ============================================================== -->
+                    <div class="ecommerce-widget">
+  
+                        <div class="col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                   <i class="fas fa-file-invoice"></i> Mã đơn hàng: 
+                                       
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-lg-2 text-center">
+                                            <img src="./img/LOGO.png" width="75%">
+                                        </div>
+                                        <!-- col-lg-2 -->
+                                        <div class="col-lg-10" style="text-align:  justify;">
+                                            <p style="font-family: 'Roboto Condensed', sans-serif;">Họ tên khách hàng: <b></b></p>
+                                            <p style="font-family: 'Roboto Condensed', sans-serif; margin-top: -15px;">Địa chỉ: <b> </b><p>
+                                            <p style="font-family: 'Roboto Condensed', sans-serif; margin-top: -15px;">Số điện thoại: <b> </b><p>
+                                            <p style="font-family: 'Roboto Condensed', sans-serif; margin-top: -15px;">Thông tin nhận hàng mới: <b> </b><p>
+                                            <p style="font-family: 'Roboto Condensed', sans-serif; margin-top: -15px;">Ghi chú sản phẩm: <b> </b><p>
+                                        </div>
+                                        <!-- col-lg-10 -->
+                                    </div>
+                                    <!-- row -->
+                                </div>
+                                <div class="card-footer">
+                                    <a href="#" class="btn btn-info btn-block">
+                                        Chi tiết đơn hàng
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- col-lg-12 -->
+               
+                    </div>
+                </div>
+            </div>
+
+</body>
+</html>
