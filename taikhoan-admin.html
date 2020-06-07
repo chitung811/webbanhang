@@ -37,7 +37,7 @@
         <!-- ============================================================== -->
         <div class="dashboard-header">
             <nav class="navbar navbar-expand-lg bg-white fixed-top">
-                <a class="navbar-brand" href="index.php">KGU&copy;2019</a>
+                <a class="navbar-brand" href="index.php">5T</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -69,7 +69,7 @@
                             <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="public/images/avatars/<?php echo $avatar; ?>" alt="" class="user-avatar-md rounded-circle"></a>
                             <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
                                 <div class="nav-user-info">
-                                    <h5 class="mb-0 text-white nav-user-name" style="font-family: 'Roboto Condensed', sans-serif;"></h5>
+                                    <h5 class="mb-0 text-white nav-user-name" style="font-family: 'Roboto Condensed', sans-serif;"><?php echo $name; ?></h5>
                                     <span class="status"></span><span class="ml-2">Online</span>
                                 </div>
                                 <a class="dropdown-item" href="thong-tin-tai-khoan.php"><i class="fas fa-user mr-2"></i>Thông tin cá nhân</a>
@@ -237,19 +237,23 @@
         <!-- ============================================================== -->
         <div class="dashboard-wrapper">
             <div class="dashboard-ecommerce">
-                <div class="container-fluid dashboard-content ">
+                <div class="container-fluid dashboard-content " >
                     <!-- ============================================================== -->
                     <!-- pageheader  -->
                     <!-- ============================================================== -->
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                            <div class="page-header">
+                            <div class="page-header" >
                                 <h2 class="pageheader-title" style="font-family: 'Roboto Condensed', sans-serif;">Quản trị website bán hàng</h2>
+                                <!--
+                                <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus vel mauris facilisis faucibus at enim quis massa lobortis rutrum.</p>
+                                -->
                                 <div class="page-breadcrumb">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
                                             <li class="breadcrumb-item"><a href="index.php" class="breadcrumb-link">Trang chính</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">Thống kê trang chính</li>
+                                            <li class="breadcrumb-item"><a href="tai-khoan.php" class="breadcrumb-link">Tài khoản</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">Danh sách tài khoản</li>
                                         </ol>
                                     </nav>
                                 </div>
@@ -260,120 +264,64 @@
                     <!-- end pageheader  -->
                     <!-- ============================================================== -->
                     <div class="ecommerce-widget">
-
-                        <div class="row">
-                            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
-                                <div class="card border-3 border-top border-top-primary">
-                                    <div class="card-body">
-                                        <h5 class="text-muted" style="font-family: 'Roboto Condensed', sans-serif;">Tổng số sản phẩm</h5>
-                                        <div class="metric-value d-inline-block">
-                                            <h1 class="mb-1"><?php echo number_format($tong_san_pham); ?></h1>
-                                        </div>
+                        <div class="col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12">
+                            <div class="card">
+                                <h5 class="card-header" style="font-family: 'Roboto Condensed', sans-serif;">Danh sách tài khoản
+                                    <div class="btn_function float-right">
+                                   
                                     </div>
-                                    <div id="sparkline-revenue"></div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
-                                <div class="card border-3 border-top border-top-primary">
-                                    <div class="card-body">
-                                        <h5 class="text-muted" style="font-family: 'Roboto Condensed', sans-serif;">Tổng số bài viết</h5>
-                                        <div class="metric-value d-inline-block">
-                                            <h1 class="mb-1"></h1>
-                                        </div>
-                                    </div>
-                                    <div id="sparkline-revenue2"></div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
-                                <div class="card border-3 border-top border-top-primary">
-                                    <div class="card-body">
-                                        <h5 class="text-muted" style="font-family: 'Roboto Condensed', sans-serif;">Tài khoản khách hàng</h5>
-                                        <div class="metric-value d-inline-block">
-                                            <h1 class="mb-1"></h1>
-                                        </div>
-                                    </div>
-                                    <div id="sparkline-revenue3"></div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
-                                <div class="card border-3 border-top border-top-primary">
-                                    <div class="card-body">
-                                        <h5 class="text-muted" style="font-family: 'Roboto Condensed', sans-serif;">Tài khoản quản trị</h5>
-                                        <div class="metric-value d-inline-block">
-                                            <h1 class="mb-1"></h1>
-                                        </div>
-                                    </div>
-                                    <div id="sparkline-revenue4"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <!-- ============================================================== -->
-                      
-                            <!-- ============================================================== -->
-
-                                          <!-- recent orders  -->
-                            <!-- ============================================================== -->
-                            <div class="col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12">
-                                <div class="card">
-                                    <h5 class="card-header" style="font-family: 'Roboto Condensed', sans-serif;">Đơn hàng trong ngày
-                                        <a href="don-hang.php" class="btn btn-outline-info float-right">
-                                            Xử lý đơn hàng
-                                        </a>
-                                    </h5>
-                                    <div class="card-body p-0">
-                                        <div class="table-responsive">
-                                            <table class="table">
-                                                <thead class="bg-light">
-                                                    <tr class="border-0">
-                                                        <th class="border-0" style="font-family: 'Roboto Condensed', sans-serif;">STT</th>
-                                                        <th class="border-0" style="font-family: 'Roboto Condensed', sans-serif;">Mã đơn hàng</th>
-                                                        <th class="border-0" style="font-family: 'Roboto Condensed', sans-serif;">Tên khách hàng</th>
-                                                        <th class="border-0" style="font-family: 'Roboto Condensed', sans-serif;">Tổng tiền</th>
-                                                        <th class="border-0" style="font-family: 'Roboto Condensed', sans-serif;">Ngày đặt</th>
-                                                        <th class="border-0" style="font-family: 'Roboto Condensed', sans-serif;">Tình trạng</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-    
-                                                </tbody>
-                                            </table>
-                                        </div>
+                                </h5>
+                                <div class="card-body p-0">
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead class="bg-light">
+                                                <tr class="border-0">
+                                                    <th class="border-0" style="font-family: 'Roboto Condensed', sans-serif;">STT</th>
+                                                    <th class="border-0" style="font-family: 'Roboto Condensed', sans-serif;">Avatar</th>
+                                                    <th class="border-0" style="font-family: 'Roboto Condensed', sans-serif;">Họ tên</th>
+                                                    <th class="border-0" style="font-family: 'Roboto Condensed', sans-serif;">Email</th>
+                                                    <th class="border-0" style="font-family: 'Roboto Condensed', sans-serif;">Số điện thoại</th>
+                                                    <th class="border-0" style="font-family: 'Roboto Condensed', sans-serif;">Địa chỉ</th>
+                                                    <th class="border-0" style="font-family: 'Roboto Condensed', sans-serif;">Ngày lập</th>
+                                                    <th class="border-0" style="font-family: 'Roboto Condensed', sans-serif;">Phân quyền</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+												<tr>
+                                                    <td>1</td>
+                                                    <td>
+                                                        <div class="m-r-10"><img src="public/images/no-avatar.png" alt="user" class="rounded" width="45"></div>
+                                                    </td>
+                                                    <td>Bùi Chí Tùng</td>
+                                                    <td>chitung811@gmail.com</td>
+                                                    <td>0583163441</td>
+                                                    <td width="20%">444 Hoàng Văn Thụ</td>
+                                                    <td>28/5/2020
+                                                    </td>
+													<td>Admin</td>
+													
+                                                </tr>
+												<tr>
+													<td>1</td>
+                                                    <td>
+                                                        <div class="m-r-10"><img src="public/images/no-avatar.png" alt="user" class="rounded" width="45"></div>
+                                                    </td>
+                                                    <td>Trần Lê Minh Tan</td>
+                                                    <td>minhtan123@gmail.com</td>
+                                                    <td>0583312332</td>
+                                                    <td width="20%">555 Hoàng Văn Thụ</td>
+                                                    <td>4/6/2020
+                                                    </td>
+													<td>User</td>
+												</tr>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
-                            <!-- ============================================================== -->
-            
-                            <!-- ============================================================== -->
-                            <!-- end customer acquistion  -->
-                            <!-- ============================================================== -->
+                            <!-- card -->
                         </div>
-                        <div class="row">
-
-                            <!-- ============================================================== -->
-                            <!-- end product sales  -->
-                            <!-- ============================================================== -->
-                            <div class="col-xl-3 col-lg-12 col-md-6 col-sm-12 col-12">
-                                
-                                <!-- ============================================================== -->
-                                <!-- end top perfomimg  -->
-                                <!-- ============================================================== -->
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            
-                        </div>
-                        <div class="row">
-                            
-                        </div>
-                        <div class="row">
-                            <div class="col-xl-5 col-lg-6 col-md-6 col-sm-12 col-12">
-                              
-                            </div>
-                            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
-                               
-                        </div>
+                        <!-- col-lg-12 -->
                     </div>
                 </div>
             </div>
