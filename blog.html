@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+
+	<!-- neu co ten mien khac thi thay doi base -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>5TSHOP | WEBSITE BÁN HÀNG</title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/responsive.css">
+	<!-- Bootstrap 4 -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<!-- Font Google -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet" type="text/css"/>
+	<link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+	<!-- Owl Carousel -->
+	<link rel="stylesheet" type="text/css" href="public/owlcarousel/owl.carousel.min.css">
+	<link rel="stylesheet" type="text/css" href="public/owlcarousel/owl.theme.default.css">
+
+</head>
+<style type="text/css">
+	
+</style>
+<body>
+<div id="wrapper">
+		<!-- croll top -->
+		<div class="scrolltop">
+			<span><i class="fas fa-arrow-up"></i></span>
+		</div>
+		<div id="header">
+			<div class="top_header">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-9 col-6 sm_hidden">
+							5T SHOP | Phone: 0583163441
+						</div>
+						<!-- col-10 -->
+						<div class="col-lg-3 col-12">
+							<ul class="account">
+							
+							</ul>
+							<!-- account -->
+						</div>
+						<!-- col-2 -->
+					</div>
+					<!-- row -->
+				</div>
+				<!-- container -->
+			</div>
+			<!-- top header -->
+			<div class="mid_header">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-3 col-xs-12">
+							<div class="logo">
+								<a href="#" class="logo_wrapper">
+									<img src="./imgblog/logo5T.png" width="100">
+								</a>
+							</div>
+						</div>
+						<!-- row -->
+						<div class="col-lg-9 col-12">
+							<div class="header_right">
+								<div class="heading_cart">
+									<a  class="img_hover_cart" title="Giỏ hàng">
+										<div class="icon_hotline">
+											<i class="fa fa-shopping-basket"></i>
+										</div>
+										<!-- icon hotline -->	
+									</a>
+								</div>
+								<!-- heading cart -->
+							</div>
+							<!-- header_right -->
+							<div class="support sm_hidden">
+								<p>Tư vấn bán hàng</p>
+								<span>0583163441</span>
+							</div>
+							<!-- support -->
+							<div class="col_search_engine"></div>
+								<div class="header_search">
+									<form class="search_bar"  method="POST">
+										<input type="search" name="key_word" placeholder="Sản phẩm cần tìm... " class="input_group_field">
+										<span class="input_group_btn">
+											<button type="submit" class="btn icon_fallback_text" name="tim_kiem">
+												<i class="fa fa-search"></i>
+											</button>
+										</span>
+									</form>
+								</div>
+							</div>
+							<!-- col-search engine -->
+							<div class="iconbar lg_hidden">
+								<a  onclick="return false;">
+									<i class="fa fa-align-justify"></i>
+								</a>
+							</div>
+						</div>
+						<!-- row -->
+					</div>
+					<!-- row -->
+				</div>
+				<!-- container -->
+			</div>
+			<!-- mid header -->
+			<div class="bot_header">
+				<div class="navbar_header">
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-12 sm_hidden">
+								<nav class="header_nav">
+									<ul class="item_big">
+										<li class="nav_item"><a  title="Trang chủ">Trang chủ</a></li>
+										<li class="nav_item"><a  title="Giới thiệu">Giới thiệu</a></li>
+										<li class="nav_item">
+											<a  title="Sản phẩm" onclick="return false;">
+												<span> Sản phẩm </span>
+												<i class="fa fa-caret-down"></i>
+											</a>
+											<ul class="item_small">
+						
+												<li>
+													<a  title="">
+							
+														<span class="badge badge-pill badge-primary">
+															
+														</span>
+													</a>
+												</li>
+						
+											</ul>
+										</li>
+										<li class="nav_item">
+											<a  title="Tin tức" onclick="return false;">
+												<span> Tin tức </span>
+												<i class="fa fa-caret-down"></i>
+											</a>
+											<ul class="item_small">
+					
+												<li><a  title=""></a></li>
+						
+											</ul>
+										</li>
+										<li class="nav_item"><a  title="Liên hệ">Liên hệ</a></li>
+									</ul>
+								</nav>
+								<!-- header nav -->
+							</div>
+							<!-- col-lg-12 -->
+						</div>
+						<!-- row -->
+					</div>
+					<!-- container -->
+				</div>
+				<!-- navbar header -->
+				<div class="navbar_mobile lg_hidden">
+					<ul class="ul_collections">
+						<li class="special">
+							<a >Tất cả danh mục</a>
+						</li>
+						<li class="parent">
+							<a >Trang chủ</a> 
+						</li>
+						<li class="parent">
+							<a >Giới thiệu</a></i>
+						</li>
+						<li class="parent">
+							<a  class="slide" onclick="return false;">Sản phẩm</a> <i class="fa fa-angle-down"></i></i>
+							<ul class="level10 slideContent">
+								
+								<li class="level1">
+									<a ><span></span></a>
+								</li>
+		
+							</ul>
+						</li>
+						<li class="parent">
+							<a  class="slide" onclick="return false;">Tin tức</a>  <i class="fa fa-angle-down"></i></i>
+							<ul class="level10 slideContent">
+		
+								<li class="level1">
+									<a ><span></span></a>
+								</li>
+		
+							</ul>
+						</li>
+						<li class="parent">
+							<a >Liên hệ</a>
+						</li>
+					</ul>
+				</div>
+				<div class="clearfix"></div>
+
+
+<div id="content">
+			<!-- top slider none -->
+			<div class="breadcrumb_me">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12">
+							<ul class="breadcrumb_list">
+								<li><a >Trang chủ</a></li>
+								<li><i class="fas fa-caret-right"></i></li>
+								<li></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="mid_content" style="background: #fff; margin-top: 0;">
+				<div class="container">
+					<div class="row">
+						<!-- advertisement none -->
+						<div class="col-lg-12 padding-30">
+							<div class="title_module_main">
+								<h2>
+									<a  title="">Shop's Blog</a>
+								</h2>
+							</div>
+							<div class="product_main">
+								<div class="row">
+								    <div class="col-lg-9 col-xs-12">
+	
+								    	<div class="blog_item">
+								    		<div class="image_blog_left">
+								    		
+												<a >
+								    				<img src="./imgblog/1563243901.jpg" alt="" title="">
+								    			</a>
+												<br></br>
+												<a >
+								    				<img src="./imgblog/1563416857.jpg" alt="" title="">
+								    			</a>
+												
+								    		</div>
+
+											
+								    		<div class="content_right_blog">
+								    			<div class="title_blog_home">
+								    				<h3>
+								    					<a  title="">
+								    						
+								    					</a>
+								    				</h3>
+								    			</div>
+								    			<div class="content_day_blog" background-color:red>
+								    				<span class="fix_left_blog">
+								    					<i class="far fa-calendar-alt"></i>
+								    					<span>
+															 Xu hướng thời trang cho bé không nên bỏ qua
+								    					</span>
+														<br></br>
+														<i class="far fa-calendar-alt"></i>
+								    					<span>
+															 Xu hướng thời trang cho bé gái 
+								    					</span>
+														<br></br>
+														<i class="far fa-calendar-alt"></i>
+								    					<span>
+															 Xu hướng thời trang cho bé trai
+								    					</span>
+														<br></br>
+														<i class="far fa-calendar-alt"></i>
+								    					<span>
+															 Xu hướng thời trang cho bé nhỏ vào mùa tết
+								    					</span>
+														<br></br>
+														<i class="far fa-calendar-alt"></i>
+								    					<span>
+															 Xu hướng thời trang cho bé nhỏ vào mùa hè
+								    					</span>
+														<br></br>
+														<i class="far fa-calendar-alt"></i>
+								    					<span>
+															 Xu hướng thời trang cho bé nhỏ vào mùa thu
+								    					</span>
+														<br></br>
+														<i class="far fa-calendar-alt"></i>
+								    					<span>
+															 Xu hướng thời trang cho bé nhỏ vào mùa đông
+								    					</span>
+														<br>
+														</br>
+									    				<!--<span class="news_home_content_short_time">
+															Dù là bé trai hay bé gái thì việc ăn mặc cũng khiến các mẹ đau đầu. Đâu phải cứ mua một cái quần, một cái áo hay một chiếc đầm cho bé gái là xong đâu. Còn phải xem nó có đẹp, có tốt, có hợp xu hướng không nữa. Dưới đây là một sỗu hướng đã làm mưa làm gió trong suốt thời gian qua
+															<br></br>
+															Nói đến thời trang bé trai thì phải nói đến sự thoải mái và tiện lợi. Đặc biệt một trong những xu hướng đang rất hot gần đây đều ảnh hưởng không nhỏ từ phong cách Retro – tức là quay lại hơi hướng thời trang những năm 80, 90. Hầu hết trong các trang phục thì áo sơ mi, quần jeans chính là món đồ kinh điển chiếm được sự yêu thích của các mẹ. Bên cạnh đó, những chiếc áo sơ mi màu pastel, màu trắng, xám hay đen tạo nên một làn sóng xu hướng
+															<br></br>
+															Các bé gái vẫn hoàn toàn trung thành với style nữ tính và điệu đà. Vì thế những chiếc đầm cho bé gái được thiết kế vô cùng tinh tế và xinh xắn. Với thiết kế bồng bềnh kèm theo họa tiết tươi vui, pha trộn nhiều màu sắc khác nhau khiến các bé vô cùng thích thú
+															<br></br>
+															Ngoài các mẫu đầm cho bé gái điệu đà thì áo thun, áo oversized, áo hoodie cũng vô cùng hot. Những chiếc áo này mặc vô liền cảm thấy năng động nhưng vẫn luôn giữ được vẻ đáng yêu. Để nổi bật hơn thì nên chọn trang phục có họa tiết nhưng đơn giản một chút, đừng cầu kì, lòe loẹt quá
+															<br></br>
+															Tóm lại những xu hướng này vô cùng hot nhưng khi chọn quần áo hay váy đầm cho bé gái thì nên làm từ cotton, tơ tằm, linen hoặc các loại vải mềm mịn để đảm bảo con mình mặc lên dễ chịu nhất có thể. Hy vọng các mẹ có thể cập nhật được những xu hướng này sớm nhất để dễ dàng lựa chọn và sáng tạo phong cách mới mẻ cho bé
+															<br></br>
+															tag: đầm cho bé gái
+														</span>-->
+								    				</span>
+								    			</div>
+								    			<p class="blog_item_summary">
+								    				<!--Theo Fashionista Nguyễn Nhị Thành Tài--> 
+								    			</p>
+								    		</div>
+								    	</div>
+								    	<!-- blog_item -->
+	
+								    	<div class="clearfix"></div>
+								    	<!-- content blog -->
+										<ul class="pagination_list">
+										
+										</ul>
+										<!-- pagination -->
+								    </div>
+								    <!-- col-lg-9 col-xs-12 -->
+								    <div class="col-lg-3 col-xs-12">
+								    	<div class="sidebar_blog">
+								    		<h2 class="title_head">
+								    			<span> Danh mục tin tức </span>
+								    		</h2>
+								    		<ul class="aside_category">
+												 
+									    		<li><a >Thời trang đón tết</a></li>
+												<li><a >Thời trang đi biển </a></li>
+												<li><a >Thời trang đi hóng gió </a></li>
+												<li><a >Thời trang ở nhà và ngủ </a></li>
+									    	</ul>
+								    	</div>
+								    	<!-- sidebar blog -->
+								    	<div class="blog_aside">
+								    		<h2 class="title_head">
+								    			<span> Bài viết nổi bật</span>
+								    		</h2>
+	
+								    		<div class="blog_list">
+								    			<div class="loop_blog">
+								    				<div class="thumb_left">
+								    					<a >
+								    						<img src="./imgblog/1562944320.jpg" alt="" title="">
+								    					</a>
+								    				</div>
+								    				<!-- thumb_left -->
+								    				<div class="name_right">
+								    					<h3 class="text2line">
+								    						<a  title="">
+								    	
+								    						</a>
+								    					</h3>
+								    					<div class="date">
+								    						<i class="far fa-calendar-alt"></i>
+								    						<span>
+																Thời trang cho trẻ sơ sinh
+							    							</span>
+								    					</div>
+														
+														
+								    				</div>
+													
+								    				<!-- name right -->
+								    			</div>
+												<br></br>
+											<div class="blog_list">
+								    			<div class="loop_blog">
+								    				<div class="thumb_left">
+								    					<a >
+								    						<img src="./imgblog/1563328849.jpg" alt="" title="">
+								    					</a>
+								    				</div>
+								    				<!-- thumb_left -->
+								    				<div class="name_right">
+								    					<h3 class="text2line">
+								    						<a  title="">
+								    	
+								    						</a>
+								    					</h3>
+								    					<div class="date">
+								    						<i class="far fa-calendar-alt"></i>
+								    						<span>
+																Mang bầu nên làm gì để con đẹp trai như Ronaldo 
+							    							</span>
+								    					</div>
+														
+														
+								    				</div>
+													
+								    				<!-- name right -->
+								    			</div>
+								    		</div>
+								    		<!-- blog list -->
+							    		
+								    	</div>
+								    	<!-- blog aside -->
+								    	<div class="blog_aside">
+								    		<h2 class="title_head">
+								    			<span> Sản phẩm nổi bật </span>
+								    		</h2>
+	
+								    		<div class="product_item_small">
+								    			<div class="left_item">
+								    		
+													<a>
+								    					<img src="./imgblog/m_1563444096.jpg" alt="" title="hoi bi xin nhen ">
+								    				</a>
+													
+								    			</div>
+								    			<div class="product_info">
+								    				<h3><a>
+								    					ronaldo orange
+								    				</a></h3>
+								    				<div class="price_box_mini">
+								    					<span>
+														1000000000000 vnđ
+														</span>
+								    				</div>
+													
+								    			</div>
+								    		</div>
+											<br></br>
+											<div class="product_item_small">
+								    			<div class="left_item">
+								    		
+													<a>
+								    					<img src="./imgblog/1563242083.jpg" alt="" title="hoi bi xin nhen ">
+								    				</a>
+													
+								    			</div>
+								    			<div class="product_info">
+								    				<h3><a>
+								    					Hơi vàng 
+								    				</a></h3>
+								    				<div class="price_box_mini">
+								    					<span>
+														1000000000000 vnđ
+														</span>
+								    				</div>
+													
+								    			</div>
+								    		</div>
+											<br></br>
+											<div class="product_item_small">
+								    			<div class="left_item">
+								    		
+													<a>
+								    					<img src="./imgblog/1563243318.jpg" alt="" title="hoi bi xin nhen ">
+								    				</a>
+													
+								    			</div>
+								    			<div class="product_info">
+								    				<h3><a>
+								    					Vàng thêm nón 
+								    				</a></h3>
+								    				<div class="price_box_mini">
+								    					<span>
+														1000000000000 vnđ
+														</span>
+								    				</div>
+													
+								    			</div>
+								    		</div>
+											
+								    	</div>
+								    	<!-- product aside -->
+								    </div>
+								    <!-- col-lg-3 col xs-12 -->
+								</div>
+							</div>
+						</div>
+						<!-- col-lg-12 -->
+					</div>
+					<!-- row -->
+				</div>
+				<!-- cotainer -->
+			</div>
+			<!-- middle content -->
+			<!-- bottom content -->
+		</div>
+		<!-- content -->
+		
+</body>	
+<div id="footer">
+			<div class="content_footer">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-4">
+							<div class="logo_footer">
+								<a >
+									<img src="./imgblog/logo5T.png" width="200">
+								</a>
+							</div>
+							<div class="classes_widget">
+				
+							</div>
+						</div>
+						<!-- col-lg-4 -->
+						<div class="col-lg-2">
+							<h4 class="clicked">Về chúng tôi</h4>
+							<ul class="toggle_menu">
+								<li><a  title="Trang chủ">Trang chủ</a></li>
+								<li><a  title="Giới thiệu">Giới thiệu</a></li>
+								<li><a  title="Sản phẩm">Sản phẩm</a></li>
+								<li><a  title="Tin tức">Tin tức</a></li>
+								<li><a  title="Liên hệ">Liên hệ</a></li>
+							</ul>
+						</div>
+						<!-- col-lg-2 -->
+						<div class="col-lg-2">
+							<h4 class="clicked">Chính sách</h4>
+							<ul class="toggle_menu">
+								<li><a  title="Trang chủ">Trang chủ</a></li>
+								<li><a  title="Giới thiệu">Giới thiệu</a></li>
+								<li><a  title="Sản phẩm">Sản phẩm</a></li>
+								<li><a  title="Tin tức">Tin tức</a></li>
+								<li><a  title="Liên hệ">Liên hệ</a></li>
+							</ul>
+						</div>
+						<!-- col-lg-2 -->
+						<div class="col-lg-4">
+							<h4 class="clicked">Đăng ký nhận khuyến mãi</h4>
+							<div class="form_km">
+								<form method="POST" target="_blank">
+									<input type="email" value="" placeholder="Nhập email của bạn...">
+									<button class="btn_subscribe" name="subscribe">Đăng ký</button>
+								</form>
+							</div>
+							<div class="clearfix"></div>
+							<!-- clear-fix -->
+							<!--
+							<div class="col-lg-12 pl-0 pr-0 mt-2 mb-2">
+								<div class="fb-post" data-href="https://www.facebook.com/photo.php?fbid=850604548671929&set=a.122901681442223&type=3&theater" data-width="350" data-height="100" data-show-text="true"><blockquote cite="https://developers.facebook.com/20531316728/posts/10154009990506729/" class="fb-xfbml-parse-ignore">Người đăng: <a href="https://www.facebook.com/dthanhhuy1998">Facebook</a> vào&nbsp;<a href="https://developers.facebook.com/20531316728/posts/10154009990506729/">Thứ Năm, 27 tháng 8, 2015</a></blockquote></div>
+							</div>
+							-->
+						</div>
+						<!-- col-lg-4 -->
+					</div>
+					<!-- row -->
+				</div>
+				<!-- container -->
+			</div>
+			<!-- content_footer -->
+			<div class="copyright">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12">
+							<h2 class="title_school">5TSHOP</h2>
+							<h4 class="title_name">Địa chỉ liên hệ: 155 Phan Văn Trị quận Gò Vấp thành phố Hồ Chí Minh </h4>
+							<h4 class="title_name">Số điện thoại: 0583163441</h4>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- footer -->
+	</div>
+	<!-- wrapper -->
+</body>
+
+<!-- Bootstrap 4 -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<!-- JQuery 3.4.1 -->
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<!-- Vue JS -->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<!-- Owl Carousel -->
+<script src="public/owlcarousel/owl.carousel.min.js"></script>
+<script>
+	
+		$(document).ready(function(){
+			
+			// owl product
+			$('.owl-product').owlCarousel({
+			    loop:false,
+			    margin:10,
+			    autoplay:true,
+				autoplayTimeout:5000,
+			    responsiveClass:true,
+			    responsive:{
+			        0:{
+			            items:2,
+			            nav:false
+			        },
+			        600:{
+			            items:3,
+			            nav:false
+			        },
+			        1000:{
+			            items:4,
+			            nav:false,
+			            loop:false
+			        }
+			    }
+			})
+
+			// owl thumb
+			$('.owl-product-thumb').owlCarousel({
+			    loop:false,
+			    margin:10,
+			    autoplay:true,
+				autoplayTimeout:3000,
+			    responsiveClass:true,
+			    responsive:{
+			        0:{
+			            items:4,
+			            nav:false
+			        },
+			        600:{
+			            items:4,
+			            nav:false
+			        },
+			        1000:{
+			            items:4,
+			            nav:false,
+			            loop:false
+			        }
+			    }
+			})
+
+			// owl blog
+			$('.owl-blog').owlCarousel({
+			    loop: false,
+			    margin:10,
+			    autoplay:true,
+				autoplayTimeout:5000,
+			    responsiveClass:true,
+			    responsive:{
+			        0:{
+			            items:1,
+			            nav:false
+			        },
+			        600:{
+			            items:3,
+			            nav:false
+			        },
+			        1000:{
+			            items:3,
+			            nav:false,
+			            loop:false
+			        }
+			    }
+			})
+
+			// owl blog
+			$('.owl-product-rela').owlCarousel({
+			    loop: false,
+			    margin:10,
+			    autoplay:true,
+				autoplayTimeout:5000,
+			    responsiveClass:true,
+			    responsive:{
+			        0:{
+			            items:2,
+			            nav:false
+			        },
+			        600:{
+			            items:3,
+			            nav:false
+			        },
+			        1000:{
+			            items:6,
+			            nav:false,
+			            loop:false
+			        }
+			    }
+			})
+
+		});
+
+
+		// toggle menu header
+		$( ".iconbar" ).click(function() {
+		  $( ".ul_collections" ).slideToggle(400);
+		});
+
+		// toggle submenu header
+		$(".slide").click(function(){
+		    var target = $(this).parent().children(".slideContent");
+		    $(target).slideToggle();
+		});
+
+		// change image clicked
+		var image_show = document.getElementById('img-container');
+		function change_img(image){
+			image_show.src = image.src;
+		}
+
+		// https://css-tricks.com/snippets/jquery/smooth-scrolling/
+		// Select all links with hashes
+		$('a[href*="#"]')
+		  	// Remove links that don't actually link to anything
+		  	.not('[href="#"]')
+		  	.not('[href="#0"]')
+		  	.click(function(event) {
+		    // On-page links
+		    if (
+		      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
+		      && 
+		      location.hostname == this.hostname
+		    ) {
+		      // Figure out element to scroll to
+		      var target = $(this.hash);
+		      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+		      // Does a scroll target exist?
+		      if (target.length) {
+		        // Only prevent default if animation is actually gonna happen
+		        event.preventDefault();
+		        $('html, body').animate({
+		          scrollTop: target.offset().top
+		        }, 600, function() {
+		          // Callback after animation
+		          // Must change focus!
+		          var $target = $(target);
+		          $target.focus();
+		          if ($target.is(":focus")) { // Checking if the target was focused
+		            return false;
+		          } else {
+		            $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+		            $target.focus(); // Set focus again
+		          };
+		        });
+		      }
+		    }
+		});
+
+		// make tab by vue js
+		new Vue({
+			el: '#app-tabs',
+			data: {
+				tab1: true,
+				tab2: false,
+				tab3: false
+			},
+			create: function () {
+				this.tab1btn()
+			},
+			methods: {
+				tab1btn: function () {
+					// add class select
+					$('#selecttab1').addClass('selection')
+					$('#selecttab2').removeClass('selection')
+					$('#selecttab3').removeClass('selection')
+					// add class active
+					$('#tab1btn').addClass('active')
+					$('#tab2btn').removeClass('active')
+					$('#tab3btn').removeClass('active')
+					this.tab1 = true
+					this.tab2 = false
+					this.tab3 = false
+				},
+				tab2btn: function () {
+					// add class select
+					$('#selecttab1').removeClass('selection')
+					$('#selecttab2').addClass('selection')
+					$('#selecttab3').removeClass('selection')
+					// add class active
+					$('#tab1btn').removeClass('active')
+					$('#tab2btn').addClass('active')
+					$('#tab3btn').removeClass('active')
+					this.tab1 = false
+					this.tab2 = true
+					this.tab3 = false
+				},
+				tab3btn: function () {
+					// add class select
+					$('#selecttab1').removeClass('selection')
+					$('#selecttab2').removeClass('selection')
+					$('#selecttab3').addClass('selection')
+					// add class active
+					$('#tab1btn').removeClass('active')
+					$('#tab2btn').removeClass('active')
+					$('#tab3btn').addClass('active')
+					this.tab1 = false
+					this.tab2 = false
+					this.tab3 = true
+				}
+			}
+		})
+
+		// back to top
+		$('.scrolltop').click(function(){ 
+	        $("html, body").animate({ scrollTop: 0 }, 1000); 
+	        return false; 
+	    });
+
+	    // loading 
+	    window.addEventListener("load", function (){
+	      const loader = document.querySelector(".loader");
+	      loader.className += " hidden";
+	    });
+
+</script>
+		
+</html>
