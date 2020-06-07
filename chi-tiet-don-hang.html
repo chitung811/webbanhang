@@ -1,66 +1,221 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-	<link href = "D:/CNTT/babyshop/css/style.css" rel="stylesheet">
-	<link href = "D:/CNTT/babyshop/css/reset.css" rel="stylesheet">
-	<link href = "D:/CNTT/babyshop/css/responsive.css" rel="stylesheet">
-		<meta charset="utf-8"/>
-	
-	
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>webbanhang</title>
-	<link rel="stylesheet" type="text/css" href="css/reset.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" type="text/css" href="css/responsive.css">
-	<!-- Bootstrap 4 -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-	<!-- Font Google -->
-	<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet" type="text/css"/>
-	<link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
-	<!-- Font Awesome -->
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
-	<!-- Owl Carousel -->
-	<link rel="stylesheet" type="text/css" href="public/owlcarousel/owl.carousel.min.css">
-	<link rel="stylesheet" type="text/css" href="public/owlcarousel/owl.theme.default.css">
-<div id="fb-root"></div>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Quản trị - Website bán hàng</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link href="assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/libs/css/style.css">
+    <link rel="stylesheet" href="assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="assets/vendor/charts/chartist-bundle/chartist.css">
+    <link rel="stylesheet" href="assets/vendor/charts/morris-bundle/morris.css">
+    <link rel="stylesheet" href="assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="assets/vendor/charts/c3charts/c3.css">
+    <link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+
+</head>
 <style type="text/css">
-	.loader {
-        position: fixed;
-        z-index: 99;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: #fff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        opacity: 0.8;
-    }
-    .loader img {
-        width: 540px;
-        height: 260px;
-    }
-    .loader.hidden {
-        animation: fadeOut 1s;
-        animation-fill-mode: forwards; 
-    }
-    .language-php{
-        background-color: ;
-    }
-    @keyframes fadeOut {
-        100% {
-            opacity: 0;
-            visibility: hidden;
-        }
+    body 
+    {
+        font-family: 'Roboto Condensed', sans-serif;
     }
 </style>
-
 <body>
+	<!-- ============================================================== -->
+    <!-- main wrapper -->
+    <!-- ============================================================== -->
+    <div class="dashboard-main-wrapper">
         <!-- ============================================================== -->
-        <!-- wrapper  -->
+        <!-- navbar -->
         <!-- ============================================================== -->
-        <div class="dashboard-wrapper">
+        <div class="dashboard-header">
+            <nav class="navbar navbar-expand-lg bg-white fixed-top">
+                <a class="navbar-brand" href="index.php">5T</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto navbar-right-top">
+                        <li class="nav-item">
+                            <div id="custom-search" class="top-search-bar">
+                                <input class="form-control" type="text" placeholder="Tìm kiếm..">
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown notification">
+                            <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-history"></i><!--<span class='indicator'></span>--></a>
+                            <ul class="dropdown-menu dropdown-menu-right notification-dropdown">
+                                <li>
+                                    <div class="notification-title"> Lịch sử </div>
+                                    <div class="notification-list">
+                                        <div class="list-group">
+                                
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="list-footer"> <a href="history.php">Xem tất cả</a></div>
+                                </li>
+                            </ul>
+                        </li>
+                    
+                        <li class="nav-item dropdown nav-user">
+                            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="public/images/avatars/<?php echo $avatar; ?>" alt="" class="user-avatar-md rounded-circle"></a>
+                            <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
+                                <div class="nav-user-info">
+                                    <h5 class="mb-0 text-white nav-user-name" style="font-family: 'Roboto Condensed', sans-serif;"></h5>
+                                    <span class="status"></span><span class="ml-2">Online</span>
+                                </div>
+                                <a class="dropdown-item" href="thong-tin-tai-khoan.php"><i class="fas fa-user mr-2"></i>Thông tin cá nhân</a>
+                                <a class="dropdown-item" href="doi-mat-khau.php"><i class="fas fa-cog mr-2"></i>Đổi mật khẩu</a>
+                                <a class="dropdown-item" href="dang-xuat.php"><i class="fas fa-power-off mr-2"></i>Đăng xuất</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+	</div>
+	<!-- ============================================================== -->
+        <!-- left sidebar -->
+        <!-- ============================================================== -->
+        <div class="nav-left-sidebar sidebar-dark">
+            <div class="menu-list">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="d-xl-none d-lg-none" href="#">Danh mục</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav flex-column">
+                            <li class="nav-divider">
+                                Danh mục
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-5" aria-controls="submenu-5"><i class="fas fa-laptop"></i>Trang chính</a>
+                                <div id="submenu-5" class="collapse submenu" style="">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="../../index.php" target="_blank">Đến website</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="index.php">Thống kê</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="don-hang.php">Danh sách hóa đơn</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="san-pham.php">Danh sách sản phẩm</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="tai-khoan.php">Danh sách tài khoản</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2"><i class="fas fa-box-open"></i>Sản phẩm</a>
+                                <div id="submenu-2" class="collapse submenu" style="">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="loai-san-pham.php">Tạo loại sản phẩm</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="upload-san-pham.php">Upload sản phẩm</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="san-pham.php">Danh sách sản phẩm</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-3" aria-controls="submenu-3"><i class="far fa-newspaper"></i>Bài viết</a>
+                                <div id="submenu-3" class="collapse submenu" style="">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="loai-blog.php">Tạo loại bài viết</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="upload-blog.php">Đăng bài mới</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="blog.php">Danh sách bài viết</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-4" aria-controls="submenu-4"><i class="fas fa-file-invoice"></i>Đơn hàng</a>
+                                <div id="submenu-4" class="collapse submenu" style="">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="don-hang.php">Quản lý đơn hàng</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="van-chuyen.php">Đang vận chuyển</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="don-hang-thu-hoi.php">Đơn hàng thu hồi</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="don-hang-thanh-cong.php">Đơn hàng thành công</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            
+                            <li class="nav-divider">
+                                Tài khoản
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-user"></i> Tài khoản </a>
+                                <div id="submenu-6" class="collapse submenu" style="">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="thong-tin-tai-khoan.php">Thông tin tài khoản</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="tai-khoan.php">Danh sách tài khoản</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="doi-mat-khau.php">Đổi mật khẩu</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="dang-xuat.php">Đăng xuất</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- end left sidebar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+       
+			            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <div class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        
+                    </div>
+                </div>
+            </div>
+			 <div class="dashboard-wrapper">
             <div class="dashboard-ecommerce">
                 <div class="container-fluid dashboard-content " >
                     <!-- ============================================================== -->
@@ -123,8 +278,8 @@
 										<thead>
 											<tr>
 												<th width="15%">Ảnh sản phẩm</th>
-												<th width="40%">Mã sản phẩm</th>
-												<th width="15%">Tên sản phẩm  giá</th>
+												<th width="30%">Mã sản phẩm</th>
+												<th width="20%">Tên sản phẩm  giá</th>
 												<th width="15%">Số lượng</th>
 												<th width="15%">Thành tiền</th>
 											</tr>
@@ -132,17 +287,17 @@
 										<tbody>
 													<tr>
 												<td class="image_product_table">
-													<img src="D:\CNTT\layoutweb.html\images\dodaopho.jpg" alt="dodaopho.jpg" 
+													<img src="imgblog\m_1563444001.jpg" width=150 height = 150 >
 												</td>
-												<td class="text-center">
+												<td class="left">
 													 <b> B45367460 <b>
 												</td>
-												<td class="text-center">
+												<td class="left">
 													<b> Bộ dạo phố dễ thương cho bé </b>
 												</td>
-												<td class="text-center">
+												<td class="left">
 													<b> 1	</b>											</td>
-												<td class="text-center">
+												<td class="left">
 													<b>1,250,000,000đ </b>
 												</td>
 											<tr>
@@ -170,3 +325,42 @@
                     </div>
                 </div>
             </div>
+            <!-- ============================================================== -->
+            <!-- end footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- end wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- end main wrapper  -->
+    <!-- ============================================================== -->
+    <!-- Optional JavaScript -->
+    <!-- jquery 3.3.1 -->
+    <script src="../assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+    <!-- bootstap bundle js -->
+    <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+    <!-- slimscroll js -->
+    <script src="../assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+    <!-- main js -->
+    <script src="../assets/libs/js/main-js.js"></script>
+    <!-- chart chartist js -->
+    <script src="../assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
+    <!-- sparkline js -->
+    <script src="../assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
+    <!-- morris js -->
+    <script src="../assets/vendor/charts/morris-bundle/raphael.min.js"></script>
+    <script src="../assets/vendor/charts/morris-bundle/morris.js"></script>
+    <!-- chart c3 js -->
+    <script src="../assets/vendor/charts/c3charts/c3.min.js"></script>
+    <script src="../assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
+    <script src="../assets/vendor/charts/c3charts/C3chartjs.js"></script>
+    <script src="../assets/libs/js/dashboard-ecommerce.js"></script>
+    <script src="ckeditor/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace( 'ckeditor' );
+    </script>
+</body>
+ 
+</html>
