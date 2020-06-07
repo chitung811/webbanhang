@@ -24,87 +24,88 @@
 <style type="text/css">
 </style>
 <body>
-
-	<div id="wrapper">
-		<!-- croll top -->
-		<div class="scrolltop">
-			<span><i class="fas fa-arrow-up"></i></span>
+ <!--TRANG CHỦ-->
+ 
+ <div id="wrapper">
+	<!-- croll top -->
+	<div class="scrolltop">
+		<span><i class="fas fa-arrow-up"></i></span>
+	</div>
+	<div id="header">
+		<div class="top_header">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-9 col-6 sm_hidden">
+						5TSHOP | Phone: 0583163441
+					</div>
+					<!-- col-10 -->
+					<div class="col-lg-3 col-12">
+						<ul class="account">
+						<li><a href='#'><i class='fas fa-user-plus'></i> Đăng nhập</a></li><li><a href='#'><i class='fas fa-sign-in-alt'></i> Đăng ký </a></li>		
+						</ul>
+						<!-- account -->
+					</div>
+					<!-- col-2 -->
+				</div>
+				<!-- row -->
+			</div>
+			<!-- container -->
 		</div>
-		<div id="header">
-			<div class="top_header">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-9 col-6 sm_hidden">
-							5TSHOP | Phone: 0583163441
+		<!-- top header -->
+		<div class="mid_header">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-3 col-xs-12">
+						<div class="logo">
+							<a href="#" class="logo_wrapper">
+								<img src="img/LOGO.png" width="65%">
+							</a>
 						</div>
-						<!-- col-10 -->
-						<div class="col-lg-3 col-12">
-							<ul class="account">
-							<li><a href='#'><i class='fas fa-user-plus'></i> Đăng nhập</a></li><li><a href='#'><i class='fas fa-sign-in-alt'></i> Đăng ký </a></li>		
-							</ul>
-							<!-- account -->
+					</div>
+					<!-- row -->
+					<div class="col-lg-9 col-12">
+						<div class="header_right">
+							<div class="heading_cart">
+								<a href="#" class="img_hover_cart" title="Giỏ hàng">
+									<div class="icon_hotline">
+										<i class="fa fa-shopping-basket"></i>
+									</div>
+									<!-- icon hotline -->	
+								</a>
+							</div>
+							<!-- heading cart -->
 						</div>
-						<!-- col-2 -->
+						<!-- header_right -->
+						<div class="support sm_hidden">
+							<p>Tư vấn bán hàng</p>
+							<span>0583163441</span>
+						</div>
+						<!-- support -->
+						<div class="col_search_engine">
+							<div class="header_search">
+								<form class="search_bar"  method="POST">
+									<input type="search" name="key_word" placeholder="Sản phẩm cần tìm... " class="input_group_field">
+									<span class="input_group_btn">
+										<button type="submit" class="btn icon_fallback_text" name="tim_kiem">
+											<i class="fa fa-search"></i>
+										</button>
+									</span>
+								</form>
+							</div>
+						</div>
+						<!-- col-search engine -->
+						<div class="iconbar lg_hidden">
+							<a href="#" onclick="return false;">
+								<i class="fa fa-align-justify"></i>
+							</a>
+						</div>
 					</div>
 					<!-- row -->
 				</div>
-				<!-- container -->
+				<!-- row -->
 			</div>
-			<!-- top header -->
-			<div class="mid_header">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-3 col-xs-12">
-							<div class="logo">
-								<a href="#" class="logo_wrapper">
-									<img src="img/LOGO.png" width="65%">
-								</a>
-							</div>
-						</div>
-						<!-- row -->
-						<div class="col-lg-9 col-12">
-							<div class="header_right">
-								<div class="heading_cart">
-									<a href="#" class="img_hover_cart" title="Giỏ hàng">
-										<div class="icon_hotline">
-											<i class="fa fa-shopping-basket"></i>
-										</div>
-										<!-- icon hotline -->	
-									</a>
-								</div>
-								<!-- heading cart -->
-							</div>
-							<!-- header_right -->
-							<div class="support sm_hidden">
-								<p>Tư vấn bán hàng</p>
-								<span>0583163441</span>
-							</div>
-							<!-- support -->
-							<div class="col_search_engine">
-								<div class="header_search">
-									<form class="search_bar"  method="POST">
-										<input type="search" name="key_word" placeholder="Sản phẩm cần tìm... " class="input_group_field">
-										<span class="input_group_btn">
-											<button type="submit" class="btn icon_fallback_text" name="tim_kiem">
-												<i class="fa fa-search"></i>
-											</button>
-										</span>
-									</form>
-								</div>
-							</div>
-							<!-- col-search engine -->
-							<div class="iconbar lg_hidden">
-								<a href="#" onclick="return false;">
-									<i class="fa fa-align-justify"></i>
-								</a>
-							</div>
-						</div>
-						<!-- row -->
-					</div>
-					<!-- row -->
-				</div>
-				<!-- container -->
-			</div>
+			<!-- container -->
+		</div>
 			<!-- mid header -->
 			<div class="bot_header">
 				<div class="navbar_header">
@@ -318,8 +319,9 @@
 								</a>
 							</div>
 							<div class="classes_widget">
-								</div>
-										</div>
+				
+							</div>
+						</div>
 						<!-- col-lg-4 -->
 						<div class="col-lg-2">
 							<h4 class="clicked">Về chúng tôi</h4>
@@ -346,27 +348,13 @@
 						<div class="col-lg-4">
 							<h4 class="clicked">Đăng ký nhận khuyến mãi</h4>
 							<div class="form_km">
-                                <form method="POST" target="_blank">
+								<form method="POST" target="_blank">
 									<input type="email" value="" placeholder="Nhập email của bạn...">
 									<button class="btn_subscribe" name="subscribe">Đăng ký</button>
 								</form>
 							</div>
-							<!-- form khuyen mai -->
-							<h4 class="clicked">Theo dõi ngay</h4>
-							<ul class="follow_option">
-								<li>
-									<a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
-								</li>
-								<li>
-									<a href="#" target="_blank"><i class="fab fa-google"></i></a>
-								</li>
-								<li>
-									<a href="#" target="_blank"><i class="fab fa-skype"></i></a>
-								</li>
-								<li>
-									<a href="#"><i class="fab fa-youtube"></i></a>
-								</li>
-							</ul>
+
+							
 							<div class="clearfix"></div>
 							<!-- clear-fix -->
 							<!--
@@ -384,14 +372,15 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-12">
-							<h2 class="title_school">5TSHOP</h2>
-							<h4 class="title_name">Địa chỉ liên hệ: 280 An Dương Vương, Quận 5, TP.Hồ Chí Minh</h4>
+							<h2 class="title_school">5T Shop</h2>
+							<h4 class="title_name">Địa chỉ liên hệ: 155 Phan Văn Trị quận Gò Vấp thành phố Hồ Chí Minh</h4>
 							<h4 class="title_name">Số điện thoại: 0583163441</h4>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+		<!-- footer -->
 		<!-- footer -->
 	</div>
 	<!-- wrapper -->
