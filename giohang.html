@@ -1,290 +1,20 @@
-
-
-
-
-<!DOCTYPE html>
-<html>
-<head>
-	<link href = "D:/CNTT/babyshop/css/style.css" rel="stylesheet">
-	<link href = "D:/CNTT/babyshop/css/reset.css" rel="stylesheet">
-	<link href = "D:/CNTT/babyshop/css/responsive.css" rel="stylesheet">
-		<meta charset="utf-8"/>
+<?php 
 	
-	
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>webbanhang</title>
-	<link rel="stylesheet" type="text/css" href="css/reset.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" type="text/css" href="css/responsive.css">
-	<!-- Bootstrap 4 -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-	<!-- Font Google -->
-	<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet" type="text/css"/>
-	<link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
-	<!-- Font Awesome -->
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
-	<!-- Owl Carousel -->
-	<link rel="stylesheet" type="text/css" href="public/owlcarousel/owl.carousel.min.css">
-	<link rel="stylesheet" type="text/css" href="public/owlcarousel/owl.theme.default.css">
-<div id="fb-root"></div>
-<style type="text/css">
-	.loader {
-        position: fixed;
-        z-index: 99;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: #fff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        opacity: 0.8;
-    }
-    .loader img {
-        width: 540px;
-        height: 260px;
-    }
-    .loader.hidden {
-        animation: fadeOut 1s;
-        animation-fill-mode: forwards; 
-    }
-    .language-php{
-        background-color: ;
-    }
-    @keyframes fadeOut {
-        100% {
-            opacity: 0;
-            visibility: hidden;
-        }
-    }
-</style>
+	// include
+	include('includes/header.php');
+	include('includes/top.php');
 
-<body>
-
-
-	<div id="wrapper">
-		<!-- croll top -->
-		<div class="scrolltop">
-			<span><i class="fas fa-arrow-up"></i></span>
-		</div>
-		<div id="header">
-			<div class="top_header">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-9 col-6 sm_hidden">
-						 SHOP 5T | Phone: 0583163441
-						</div>
-						<!-- col-10 -->
-						<div class="col-lg-3 col-12">
-							<ul class="account">
-							<li></a><i class='fas fa-user-plus'></i> Đăng nhập</a></li><li><a><i class='fas fa-sign-in-alt'></i> Đăng ký </a></li>		
-							</ul>
-							<!-- account -->
-						</div>
-						<!-- col-2 -->
-					</div>
-					<!-- row -->
-				</div>
-				<!-- container -->
-			</div>
-			<!-- top header -->
-			<div class="mid_header">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-3 col-xs-12">
-							<div class="logo">	
-								
-							 <img src="img\LOGO.png">
-								
-							</div>
-						</div>
-						<!-- row -->
-						<div class="col-lg-9 col-12">
-							<div class="header_right">
-								<div class="heading_cart">
-		
-										<div class="icon_hotline">
-											<i class="fa fa-shopping-basket"></i>
-										</div>
-										<!-- icon hotline -->	
-									</a>
-								</div>
-								<!-- heading cart -->
-							</div>
-							<!-- header_right -->
-							<div class="support sm_hidden">
-								<p>Tư vấn bán hàng</p>
-								<span>0396231322</span>
-							</div>
-						
-							<!-- support -->
-							<div class="col_search_engine">
-								<div class="header_search">
-									<form class="search_bar" method="POST">
-										<input type="search" name="key_word" placeholder="Sản phẩm cần tìm... " class="input_group_field">
-										<span class="input_group_btn">
-											<button type="submit" class="btn icon_fallback_text" name="tim_kiem">
-												<i class="fa fa-search"></i>
-											</button>
-										</span>
-									</form>
-								</div>
-							</div>
-							<!-- col-search engine -->
-							<div class="iconbar lg_hidden">
-								<a  onclick="return false;">
-									<i class="fa fa-align-justify"></i>
-								</a>
-							</div>
-						</div>
-						<!-- row -->
-					</div>
-					<!-- row -->
-				</div>
-				<!-- container -->
-			</div>
-			
-			<!-- mid header -->
-			<div class="bot_header">
-				<div class="navbar_header">
-					<div class="container">
-						<div class="row">
-							<div class="col-lg-12 sm_hidden">
-								<nav class="header_nav">
-									<ul class="item_big">
-										<li class="nav_item"><a  title="Trang chủ">Trang chủ</a></li>
-										<li class="nav_item"><a  title="Giới thiệu">Giới thiệu</a></li>
-										<li class="nav_item">
-											<a  title="Sản phẩm" onclick="return false;">
-												<span> Sản phẩm </span>
-												<i class="fa fa-caret-down"></i>
-											</a>
-											<ul class="item_small">
-												<li>
-													<a  title="Đồ trẻ sơ sinh">Đồ trẻ sơ sinh</a>
-												</li>
-												<li>
-													<a " title="Đồ bộ">Đồ bộ<span class="badge badge-pill badge-primary"></span>
-												</a>
-												</li>
-												<li>
-													<a  title="Đồ bé trai">Đồ bé trai<span class="badge badge-pill badge-primary"></span>	
-													</a>
-												</li>
-																		<li>
-													<a title="Đồ bé gái">Đồ bé gái<span class="badge badge-pill badge-primary">5</span>
-													</a>
-												</li>
-											</ul>
-										</li>
-										<li class="nav_item">
-											<a  title="Tin tức" onclick="return false;">
-												<span> Tin tức </span>
-												<i class="fa fa-caret-down"></i>
-											</a>
-											<ul class="item_small">
-																		<li><a  title="Tin tức mới">Tin tức mới</a></li>
-																		<li><a title="Khuyến mãi">Khuyến mãi</a></li>
-																		<li><a  title="Chia sẽ kinh nghiệm">Chia sẽ kinh nghiệm</a></li>
-																	</ul>
-										</li>
-										<li class="nav_item"><a  title="Liên hệ">Liên hệ</a></li>
-									</ul>
-								</nav>
-								<!-- header nav -->
-							</div>
-							<!-- col-lg-12 -->
-						</div>
-						<!-- row -->
-					</div>
-					<!-- container -->
-				</div>
-				<!-- navbar header -->
-				<div class="navbar_mobile lg_hidden">
-					<ul class="ul_collections">
-						<li class="special">
-							<a >Tất cả danh mục</a>
-						</li>
-						<li class="parent">
-							<a title Trang chủ</a> 
-						</li>
-						<li class="parent">
-							<a title Giới thiệu</a></i>
-						</li>
-						<li class="parent">
-							<a  class="slide" onclick="return false;">Sản phẩm</a> <i class="fa fa-angle-down"></i></i>
-							<ul class="level10 slideContent">
-								
-								<li class="level1">
-									<a <span>Đồ trẻ sơ sinh</span></a>
-								</li>
-								
-								<li class="level1">
-									<a <span>Đồ bộ</span></a>
-								</li>
-								
-								<li class="level1">
-									<a <span>Đồ bé trai</span></a>
-						
-								</li>
-								
-								<li class="level1">
-									<a <span>Đồ bé gái</span></a>
-								</li>
-									</ul>
-						</li>
-						<li class="parent">
-							<a  class="slide" onclick="return false;">Tin tức</a>  <i class="fa fa-angle-down"></i></i>
-							<ul class="level10 slideContent">
-										<li class="level1">
-									<a <span>Tin tức mới</span></a>
-								</li>
-										<li class="level1">
-									<a <span>Khuyến mãi</span></a>
-								</li>
-										<li class="level1">
-									<a <span>Chia sẽ kinh nghiệm</span></a>
-								</li>
-									</ul>
-						</li>
-						<li class="parent">
-							<a title Liên hệ</a>
-						</li>
-					</ul>
-				</div>
-				<div class="clearfix"></div>
-
-				<!-- navbar mobile -->
-				<div class="slider">
-					<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-					  	<div class="carousel-inner">
-							    <div class="carousel-item active">
-						    	<a title trang-chu
-						      		
-						      
-						      		
-						      	</a>
-						    </div>
-						  	</div>
-					  	<a class="carousel-control-prev"  role="button" data-slide="prev">
-					    	<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-					    	<span class="sr-only">Previous</span>
-					 	</a>
-					  	<a class="carousel-control-next"  role="button" data-slide="next">
-					    	<span class="carousel-control-next-icon" aria-hidden="true"></span>
-					    	<span class="sr-only">Next</span>
-					  	</a>
-					</div>
-				</div>
-				<!-- slider -->
-			</div>
-			<!-- bot header -->
-		</div>
-		<!-- header -->
-		
-		<!-- top content -->	
-<div id="content">
+	// check session exists
+	if(isset($customer) && isset($level))
+	{
+		// get data customer
+		$customer = "SELECT id_acc FROM account WHERE email ='$customer'";
+		$rs_customer = mysqli_query($conn, $customer);
+		$row_customer = mysqli_fetch_array($rs_customer);
+		$id_acc = $row_customer['id_acc'];
+	}
+?>
+		<div id="content">
 			<!-- top slider none -->
 			<div class="breadcrumb_me">
 				<div class="container">
@@ -303,13 +33,51 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-12 col-sm-pd-0">
-	
-		
+	<?php 
+		// check session exists
+		if(!isset($customer) && !isset($level))
+		{
+	?>
+							<div class="cart_login">
+								<div class="title_cart">
+									<h3>CHƯA ĐĂNG NHẬP TÀI KHOẢN</h3>
+									<span>Vui lòng <a href="dang-nhap.html"> đăng nhập </a> để mua hàng</span>
+								</div>
+							</div>
+							<!-- cart_login -->
+	<?php 
+		}
+		else
+		{
+			// check cart have product?
+			$cart = "SELECT id_customer FROM cart WHERE id_customer = '$id_acc'";
+			$rs_cart = mysqli_query($conn, $cart);
+
+			if(mysqli_num_rows($rs_cart) == 0)
+			{
+	?>
+							<div class="cart_login">
+								<div class="title_cart">
+									<h3>GIỎ HÀNG CỦA BẠN</h3>
+									<span>(Chưa có sản phẩm nào) nhấn vào <a href="trang-chu.html"> Cửa hàng </a> để mua hàng</span>
+								</div>
+							</div>
+		<?php 
+			}
+			else
+			{
+		?>
 							<!-- cart empty products -->
 							<div class="cart_panel sm_hidden">
 								<div class="title_cart">
 									<h3>GIỎ HÀNG CỦA BẠN 
 										<span> 
+										<?php 
+											$qty = "SELECT sum(qty) as tong FROM cart WHERE id_customer = '$id_acc'";
+											$rs_qty = mysqli_query($conn, $qty);
+											$row_qty = mysqli_fetch_array($rs_qty);
+											echo "( ".$row_qty['tong']." sản phẩm )";
+										?>
 										</span>
 									</h3>
 								</div>
@@ -325,41 +93,66 @@
 											</tr>
 										</thead>
 										<tbody>
-		
+		<?php 
+
+			// show data cart
+			$datacart = "SELECT id_cart, image, name_product, price, c.qty as qty_cart FROM cart c, product p WHERE c.sku_product = p.sku_product AND id_customer = '$id_acc'";
+			$rs_datacart = mysqli_query($conn, $datacart);
+			$total_money = 0;
+			while ($row_datacart = mysqli_fetch_array($rs_datacart)) 
+			{
+				$money = $row_datacart['qty_cart'] * $row_datacart['price'];
+				$total_money += $money;
+		?>
 											<tr>
 												<td class="image_product_table">
-													<img src="images\product4.jpg" alt="" title="">
+													<img src="admin/pages/public/images/products/<?php echo $row_datacart['image']; ?>" alt="<?php echo $row_datacart['image']; ?>" title="<?php echo $row_datacart['name_product']; ?>">
+												</td>
+												<td>
+													<?php echo $row_datacart['name_product']; ?>
+													<a href="delete-cart.php?id_cart=<?php echo $row_datacart['id_cart']; ?>" class="delete_cart">
+														<i class="far fa-trash-alt"></i> 
+														Xóa sản phẩm
+													</a>
 												</td>
 												<td class="text-center">
-													<b>Áo baby cute</b>
+													<?php echo number_format($row_datacart['price']); ?>đ
 												</td>
 												<td class="text-center">
-													150.000đ
+													<form action="update-qty.php" method="POST">
+														<div class="form-group">
+															<input type="hidden" name="id_cart" value="<?php echo $row_datacart['id_cart']; ?>">
+		                                                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="qty" value="<?php echo $row_datacart['qty_cart']; ?>" style="float: left; width: 50%; margin: 0 auto; vertical-align: middle;">
+		                                                    <button type="submit" class="btn btn-outline-info" name="update_qty">
+		                                                    	<i class="far fa-save"></i>
+		                                                	</button>
+		                                                </div>
+	                                                </form>
 												</td>
 												<td class="text-center">
-													1
-												</td>
-												<td class="text-center">
-													150.000đ
+													<?php echo number_format($money); ?>đ
 												</td>
 											<tr>
-										
+		<?php 
+			}
+			// end show data cart
+		?>									
 										</tbody>
 									</table>
 									<!-- table desktop -->
 									<table class="table_cart table_total">
 										<thead>
 											<tr>
-												<td>Tạm tính: 150.000đ</td>
+												<td>Tạm tính:</td>
 												<td class="total_price">
-													vnđ
+													<?php echo number_format($total_money); ?>vnđ
 												</td>
 											</tr>
 										</thead>
 										<tbody>
 											<tr>
-												<td class="text-right">Tổng tiền: 150.000đ</td>
-												<td class="text-right total_price_second">vnđ</td>
+												<td class="text-right">Tổng tiền:</td>
+												<td class="text-right total_price_second"><?php echo number_format($total_money); ?>vnđ</td>
 											</tr>
 										</tbody>
 									</table>
@@ -367,10 +160,10 @@
 									<!-- table_total -->
 									<ul class="checkout">
 										<li>
-											<a >
+											<a href="trang-chu.html">
 												<button class="btn btn-white f-left" title="Tiếp tục mua hàng" type="submit"><span>Tiếp tục mua hàng</span></button>
 											</a>
-											<a>
+											<a href="thanh-toan.html">
 												<button class="btn btn-primary button btn-proceed-checkout" title="Xác nhận đơn hàng"><span>Xác nhận đơn hàng</span></button>
 											</a>
 										</li>
@@ -381,7 +174,12 @@
 							</div>
 							<!-- cart table -->
 
-	
+	<?php 
+			}
+			// end check product have?
+		}
+		// end check session
+	?>
 						</div>
 						<!-- col-lg-12 -->
 					</div>
@@ -390,122 +188,83 @@
 				<!-- cotainer -->
 			</div>	
 			
-	
+	<?php 
+
+		// check session
+		if(isset($customer) && isset($level))
+		{
+			// check cart have product?
+			$cart = "SELECT id_customer FROM cart WHERE id_customer = '$id_acc'";
+			$rs_cart = mysqli_query($conn, $cart);
+
+			if(mysqli_num_rows($rs_cart) != 0)
+			{
+
+	?>
 			<div class="cart_mobile_page lg_hidden">
-		
+		<?php 
+
+			// show data cart
+			$datacart_mb = "SELECT id_cart, image, name_product, price, c.qty as qty_cart FROM cart c, product p WHERE c.sku_product = p.sku_product AND id_customer = '$id_acc'";
+			$rs_datacart_mb = mysqli_query($conn, $datacart_mb);
+			$total_money_mb = 0;
+			while ($row_datacart_mb = mysqli_fetch_array($rs_datacart_mb)) 
+			{
+				$money_mb = $row_datacart_mb['qty_cart'] * $row_datacart_mb['price'];
+				$total_money_mb += $money_mb;
+		?>
 				<div class="cart_mobile_item">
 					<div class="delete_cart_icon">
-						<a href="delete-cart.php?id_cart="><i class="far fa-trash-alt"></i></a>
+						<a href="delete-cart.php?id_cart=<?php echo $row_datacart_mb['id_cart']; ?>"><i class="far fa-trash-alt"></i></a>
 					</div>
 					<div class="image_cart_mb">
-						<img src="admin/pages/public/images/products/">
+						<img src="admin/pages/public/images/products/<?php echo $row_datacart_mb['image']; ?>">
 					</div>
 					<div class="title_cart_mb">
-						<a href="#"></a>
+						<a href="#"><?php echo $row_datacart_mb['name_product']; ?></a>
 					</div>
 					<div class="form_cart_mb">
 					 	<div class="cost_cart_mb">
-							Số lượng: 
+							Số lượng: <?php echo number_format($row_datacart_mb['qty_cart']); ?>
 						</div>
 				   		<div class="cost_cart_mb">
 							Giá: 
 							<span> 
-								đ 
+								<?php echo number_format($row_datacart_mb['price']); ?>đ 
 							</span>
 						</div>
 					</div>
 				</div>
 				<!-- cart_mobile_item -->
-		
+		<?php 
+			}
+			// end while
+		?>
 				<div class="cost_total_mb">
 					TỔNG TIỀN <span class="cost_right_mb">
-						đ
+						<?php echo number_format($total_money_mb); ?>đ
 					</span>
 				</div>
 				<div class="btn_cart_mobile">
-					<a>
+					<a href="thanh-toan.html">
 						<button class="btn btn-primary button btn-proceed-checkout" title="Xác nhận đơn hàng"><span>Xác nhận đơn hàng</span></button>
 					</a>
-					<a>
+					<a href="trang-chu.html">
 						<button class="btn btn-white f-left" title="Tiếp tục mua hàng" type="submit"><span>Tiếp tục mua hàng</span></button>
 					</a>
 				</div>
 			</div>
 			<!-- cart_mobile_page lg_hidden -->
-	
-		</div>		
-		<!-- content -->
-		<div id="footer">
-			<div class="content_footer">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-4">
-							<div class="logo_footer">
-							<img src ="public/images/5ticon.png">
-								
-							</div>
-							<div class="classes_widget">
-				<p>Địa chỉ: 155 Phan Văn Trị, Quận Gò Vấp</p><p>Hotline: 0583163441</p><p> Email:lonelyleaf2013@gmail.com</p>							</div>
-						</div>
-						<!-- col-lg-4 -->
-						<div class="col-lg-2">
-							<h4 class="clicked">Về chúng tôi</h4>
-							<ul class="toggle_menu">
-								<li><a title="Trang chủ">Trang chủ</a></li>
-								<li><a  title="Giới thiệu">Giới thiệu</a></li>
-								<li><a title="Sản phẩm">Sản phẩm</a></li>
-								<li><a  title="Tin tức">Tin tức</a></li>
-								<li><a title="Liên hệ">Liên hệ</a></li>
-							</ul>
-						</div>
-						<!-- col-lg-2 -->
-						<div class="col-lg-2">
-							<h4 class="clicked">Chính sách</h4>
-							<ul class="toggle_menu">
-								<li><a  title="Trang chủ">Trang chủ</a></li>
-								<li><a  title="Giới thiệu">Giới thiệu</a></li>
-								<li><a  title="Sản phẩm">Sản phẩm</a></li>
-								<li><a  title="Tin tức">Tin tức</a></li>
-								<li><a  title="Liên hệ">Liên hệ</a></li>
-							</ul>
-						</div>
-						<!-- col-lg-2 -->
-						<div class="col-lg-4">
-							<h4 class="clicked">Đăng ký nhận khuyến mãi</h4>
-							<div class="form_km">
-								<form method="POST" target="_blank">
-									<input type="email" value="" placeholder="Nhập email của bạn...">
-									<button class="btn_subscribe" name="subscribe">Đăng ký</button>
-								</form>
-							</div>
-							<!-- form khuyen mai -->
-							
-							
-							<div class="clearfix"></div>
-							
-						</div>
-						<!-- col-lg-4 -->
-					</div>
-					<!-- row -->
-				</div>
-				<!-- container -->
-			</div>
-			<!-- content_footer -->
-			<div class="copyright">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-12">
-							<h2 class="title_school">SHOP 5T</h2>
-							<h4 class="title_name">Địa chỉ liên hệ: Phan Văn Trị - Bình Thạnh</h4>
-							<h4 class="title_name">Số điện thoại: 0583163441</h4>
-						</div>
-					</div>
-				</div>
-			</div>
+	<?php
+			}
+			// end check product
+		}
+		// end check session
+	?>
 		</div>
+		<!-- content -->
+<?php 
 	
-	</div>
-</body>
-
-
-</html>
+	// footer
+	include('includes/footer.php');
+?>
