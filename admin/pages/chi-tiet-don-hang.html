@@ -1,221 +1,60 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Quản trị - Website bán hàng</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
-    <link href="assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/libs/css/style.css">
-    <link rel="stylesheet" href="assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
-    <link rel="stylesheet" href="assets/vendor/charts/chartist-bundle/chartist.css">
-    <link rel="stylesheet" href="assets/vendor/charts/morris-bundle/morris.css">
-    <link rel="stylesheet" href="assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="assets/vendor/charts/c3charts/c3.css">
-    <link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+<?php 
+    
+    // open session
+    session_start();
 
-</head>
-<style type="text/css">
-    body 
+    if(isset($_SESSION['user']) && isset($_SESSION['level']))
     {
-        font-family: 'Roboto Condensed', sans-serif;
-    }
-</style>
+        $level = $_SESSION['level'];
+        $users = $_SESSION['user'];
+        // include
+        include('includes/header.php');
+        include('includes/navbar.php');
+        include('includes/left-sidebar.php');
+
+        // include function
+        require('modules/functions.php');
+
+        // get date from session
+        $session = "SELECT * FROM account WHERE email = '".$users."'";
+        $rs_session = mysqli_query($conn, $session);
+        $row_session = mysqli_fetch_array($rs_session);
+        $id_acc = $row_session['id_acc'];
+        $name_user = $row_session['name'];
+
+        if(isset($_GET['code_invoice']))
+        {
+            $code_invoice = $_GET['code_invoice'];
+            $invoice = "SELECT code_invoice, info_receive, info_product, name, phone FROM invoice inv, account a WHERE inv.id_customer = a.id_acc AND code_invoice = '$code_invoice'";
+            $rs_invoice = mysqli_query($conn, $invoice);
+            $row_invoice = mysqli_fetch_array($rs_invoice);
+        }
+
+        // confirm invoice
+        if(isset($_GET['confirm']))
+        {
+            $code_invoice = $_GET['confirm'];
+            
+            // insert to history
+            $text = " đã xác nhận đơn hàng <b>". $code_invoice . "</b>";
+            $time = date('Y-m-d H:i:s');
+            $ins_his = "INSERT INTO history(text, time, id_acc, flag) VALUES('$text','$time', '$id_acc', 0)";
+            mysqli_query($conn, $ins_his);
+
+            // change flag invoice to transport
+            $reup_invoice = "UPDATE invoice SET flag = 1 WHERE code_invoice = '$code_invoice'";
+            mysqli_query($conn, $reup_invoice);
+
+            echo "<script>alert('Xác nhận đơn hàng thành công');</script>";
+            echo "<script>location.href='don-hang.php';</script>";
+        }
+
+?>
 <body>
-	<!-- ============================================================== -->
-    <!-- main wrapper -->
-    <!-- ============================================================== -->
-    <div class="dashboard-main-wrapper">
         <!-- ============================================================== -->
-        <!-- navbar -->
+        <!-- wrapper  -->
         <!-- ============================================================== -->
-        <div class="dashboard-header">
-            <nav class="navbar navbar-expand-lg bg-white fixed-top">
-                <a class="navbar-brand" href="index.php">5T</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse " id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto navbar-right-top">
-                        <li class="nav-item">
-                            <div id="custom-search" class="top-search-bar">
-                                <input class="form-control" type="text" placeholder="Tìm kiếm..">
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown notification">
-                            <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-history"></i><!--<span class='indicator'></span>--></a>
-                            <ul class="dropdown-menu dropdown-menu-right notification-dropdown">
-                                <li>
-                                    <div class="notification-title"> Lịch sử </div>
-                                    <div class="notification-list">
-                                        <div class="list-group">
-                                
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="list-footer"> <a href="history.php">Xem tất cả</a></div>
-                                </li>
-                            </ul>
-                        </li>
-                    
-                        <li class="nav-item dropdown nav-user">
-                            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="public/images/avatars/<?php echo $avatar; ?>" alt="" class="user-avatar-md rounded-circle"></a>
-                            <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
-                                <div class="nav-user-info">
-                                    <h5 class="mb-0 text-white nav-user-name" style="font-family: 'Roboto Condensed', sans-serif;"></h5>
-                                    <span class="status"></span><span class="ml-2">Online</span>
-                                </div>
-                                <a class="dropdown-item" href="thong-tin-tai-khoan.php"><i class="fas fa-user mr-2"></i>Thông tin cá nhân</a>
-                                <a class="dropdown-item" href="doi-mat-khau.php"><i class="fas fa-cog mr-2"></i>Đổi mật khẩu</a>
-                                <a class="dropdown-item" href="dang-xuat.php"><i class="fas fa-power-off mr-2"></i>Đăng xuất</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
-	</div>
-	<!-- ============================================================== -->
-        <!-- left sidebar -->
-        <!-- ============================================================== -->
-        <div class="nav-left-sidebar sidebar-dark">
-            <div class="menu-list">
-                <nav class="navbar navbar-expand-lg navbar-light">
-                    <a class="d-xl-none d-lg-none" href="#">Danh mục</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav flex-column">
-                            <li class="nav-divider">
-                                Danh mục
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-5" aria-controls="submenu-5"><i class="fas fa-laptop"></i>Trang chính</a>
-                                <div id="submenu-5" class="collapse submenu" style="">
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="../../index.php" target="_blank">Đến website</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="index.php">Thống kê</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="don-hang.php">Danh sách hóa đơn</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="san-pham.php">Danh sách sản phẩm</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="tai-khoan.php">Danh sách tài khoản</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            
-                            <li class="nav-item">
-                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2"><i class="fas fa-box-open"></i>Sản phẩm</a>
-                                <div id="submenu-2" class="collapse submenu" style="">
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="loai-san-pham.php">Tạo loại sản phẩm</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="upload-san-pham.php">Upload sản phẩm</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="san-pham.php">Danh sách sản phẩm</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-3" aria-controls="submenu-3"><i class="far fa-newspaper"></i>Bài viết</a>
-                                <div id="submenu-3" class="collapse submenu" style="">
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="loai-blog.php">Tạo loại bài viết</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="upload-blog.php">Đăng bài mới</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="blog.php">Danh sách bài viết</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-4" aria-controls="submenu-4"><i class="fas fa-file-invoice"></i>Đơn hàng</a>
-                                <div id="submenu-4" class="collapse submenu" style="">
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="don-hang.php">Quản lý đơn hàng</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="van-chuyen.php">Đang vận chuyển</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="don-hang-thu-hoi.php">Đơn hàng thu hồi</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="don-hang-thanh-cong.php">Đơn hàng thành công</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            
-                            <li class="nav-divider">
-                                Tài khoản
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-user"></i> Tài khoản </a>
-                                <div id="submenu-6" class="collapse submenu" style="">
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="thong-tin-tai-khoan.php">Thông tin tài khoản</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="tai-khoan.php">Danh sách tài khoản</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="doi-mat-khau.php">Đổi mật khẩu</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="dang-xuat.php">Đăng xuất</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                        
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-        </div>
-        <!-- ============================================================== -->
-        <!-- end left sidebar -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-       
-			            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
-            <div class="footer">
-                <div class="container-fluid">
-                    <div class="row">
-                        
-                    </div>
-                </div>
-            </div>
-			 <div class="dashboard-wrapper">
+        <div class="dashboard-wrapper">
             <div class="dashboard-ecommerce">
                 <div class="container-fluid dashboard-content " >
                     <!-- ============================================================== -->
@@ -231,8 +70,8 @@
                                 <div class="page-breadcrumb">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
-                                            <li class="breadcrumb-item"><a  class="breadcrumb-link">Trang chính</a></li>
-                                            <li class="breadcrumb-item"><a  class="breadcrumb-link">Đơn hàng</a></li>
+                                            <li class="breadcrumb-item"><a href="index.php" class="breadcrumb-link">Trang chính</a></li>
+                                            <li class="breadcrumb-item"><a href="don-hang.php" class="breadcrumb-link">Đơn hàng</a></li>
                                             <li class="breadcrumb-item active" aria-current="page">Chi tiết đơn hàng</li>
                                         </ol>
                                     </nav>
@@ -250,21 +89,28 @@
                                     Thông tin khách hàng
                                 </h5>
                                 <div class="card-body" style="text-align: justify;">
-                                    <h4 style="font-family: 'Roboto Condensed', sans-serif;">Tên khách hàng: Minh Tân <b>  </b></h4> </br>
-                                    <h5 style="font-family: 'Roboto Condensed', sans-serif; margin-top: -15px;">Địa chỉ: <b>354/29 Phan Văn Trị - Quận Bình Thạnh (Mặc định)</b></h5></br>
-                                    <h5 style="font-family: 'Roboto Condensed', sans-serif; margin-top: -15px;">Số điện thoại:0123456789 <b>(Mặc định)</b></h5></br>
-                                    <h5 style="font-family: 'Roboto Condensed', sans-serif; margin-top: -15px;">Thông tin nhận hàng mới: .......... <b></b></h5></br>
-                                    <h5 style="font-family: 'Roboto Condensed', sans-serif; margin-top: -15px;">Thông tin sản phẩm:.......... <b></b></h5>
+                                    <h4 style="font-family: 'Roboto Condensed', sans-serif;">Tên khách hàng: <b> <?php echo $row_invoice['name']; ?> </b></h4>
+                                    <h5 style="font-family: 'Roboto Condensed', sans-serif; margin-top: -15px;">Địa chỉ: <b>Tổ 5, khu phố 10, tt Dương đông, Phú Quốc, Kiên Giang (Mặc định)</b></h5>
+                                    <h5 style="font-family: 'Roboto Condensed', sans-serif; margin-top: -15px;">Số điện thoại: <b><?php echo $row_invoice['phone']; ?>(Mặc định)</b></h5>
+                                    <h5 style="font-family: 'Roboto Condensed', sans-serif; margin-top: -15px;">Thông tin nhận hàng mới: <b><?php echo $row_invoice['info_receive']; ?></b></h5>
+                                    <h5 style="font-family: 'Roboto Condensed', sans-serif; margin-top: -15px;">Thông tin sản phẩm: <b><?php echo $row_invoice['info_product']; ?></b></h5>
                                 </div>
-            
+            <?php 
+                if(!isset($_GET['delivery']))
+                {
+            ?>
                                 <div class="card-footer">
-                                    <a  
+                                    <a href="chi-tiet-don-hang.php?confirm=<?php echo $row_invoice['code_invoice']; ?>" class="btn btn-primary btn-block">
                                         Xác nhận đơn hàng
                                     </a>
-                                    <a 
+                                    <a href="cancel-invoice.php?cancel=<?php echo $row_invoice['code_invoice']; ?>&invoice" class="btn btn-danger btn-block" onclick="return confirm('Đơn hàng này sẽ được hủy vĩnh viễn. Đồng ý?')">
                                         Hủy đơn hàng
                                     </a>
-          
+                                </div>
+            <?php 
+                }
+                // end check
+            ?>
                             </div>
                             <!-- card -->
                         </div>
@@ -273,48 +119,53 @@
                             <div class="card">
                                 <h5 class="card-header" style="font-family: 'Roboto Condensed', sans-serif;">Chi tiết đơn hàng
                                 </h5>
-                                								<div class="cart_desktop_page">
-									<table class="table_cart">
-										<thead>
-											<tr>
-												<th width="15%">Ảnh sản phẩm</th>
-												<th width="30%">Mã sản phẩm</th>
-												<th width="20%">Tên sản phẩm  giá</th>
-												<th width="15%">Số lượng</th>
-												<th width="15%">Thành tiền</th>
-											</tr>
-										</thead>
-										<tbody>
-													<tr>
-												<td class="image_product_table">
-													<img src="imgblog\m_1563444001.jpg" width=150 height = 150 >
-												</td>
-												<td class="left">
-													 <b> B45367460 <b>
-												</td>
-												<td class="left">
-													<b> Bộ dạo phố dễ thương cho bé </b>
-												</td>
-												<td class="left">
-													<b> 1	</b>											</td>
-												<td class="left">
-													<b>1,250,000,000đ </b>
-												</td>
-											<tr>
-											
-										</tbody>
-									</table>
-									<!-- table desktop -->
-									
-									<div class="clearfix"></div>
-								</div>
-								<!-- cart_desktop_page -->
-							</div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead class="bg-light">
+                                                <tr class="border-0">
+                                                    <th class="border-0" style="font-family: 'Roboto Condensed', sans-serif;">Mã sản phẩm</th>
+                                                    <th class="border-0" style="font-family: 'Roboto Condensed', sans-serif;">Ảnh</th>
+                                                    <th class="border-0" style="font-family: 'Roboto Condensed', sans-serif;">Tên sản phẩm</th>
+                                                    <th class="border-0" style="font-family: 'Roboto Condensed', sans-serif;">Đơn giá</th>
+                                                    <th class="border-0" style="font-family: 'Roboto Condensed', sans-serif;">Số lượng</th>
+                                                    <th class="border-0" style="font-family: 'Roboto Condensed', sans-serif;">Thành tiền</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+        <?php 
+            
+            $detail_invoice = "SELECT dinv.sku_product as sku_product, image, name_product, p.price as price, dinv.qty as qty FROM detail_invoice dinv, product p WHERE dinv.sku_product = p.sku_product AND code_invoice = '$code_invoice'";
+            $rs_detail_invoice = mysqli_query($conn, $detail_invoice);
+            $total_money = 0;
+            while ($row_detail_invoice = mysqli_fetch_array($rs_detail_invoice)) 
+            {
+                $money = $row_detail_invoice['qty'] * $row_detail_invoice['price'];
+                $total_money += $money;
+
+        ?>
+                                                <tr>
+                                                    <td><?php echo $row_detail_invoice['sku_product']; ?></td>
+                                                    <td><img src="public/images/products/<?php echo $row_detail_invoice['image']; ?>" width="80"></td>
+                                                    <td><?php echo $row_detail_invoice['name_product']; ?></td>
+                                                    <td width="15%"><?php echo number_format($row_detail_invoice['price']); ?>đ</td>
+                                                    <td><?php echo number_format($row_detail_invoice['qty']); ?></td>
+                                                    <td><?php echo number_format($money); ?>đ</td>
+                                                </tr>
+        <?php 
+            }
+
+            // end while
+        ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                                 <!-- card-body -->
                                 <div class="card-footer">
                                     <div class="row">
                                         <div class="col-lg-3 float-right text-cente">
-                                            <h4 style="font-family: 'Roboto Condensed', sans-serif;">Tổng giá trị đơn hàng: <b> 1,250,000,000 </b> <h2 style="font-family: 'Roboto Condensed', sans-serif;"></h2></h4>
+                                            <h4 style="font-family: 'Roboto Condensed', sans-serif;">Tổng giá trị đơn hàng: <h2 style="font-family: 'Roboto Condensed', sans-serif;"><b><?php echo number_format($total_money); ?>vnđ</b></h2></h4>
                                         </div>
                                     </div>
                                 </div>
@@ -325,42 +176,16 @@
                     </div>
                 </div>
             </div>
-            <!-- ============================================================== -->
-            <!-- end footer -->
-            <!-- ============================================================== -->
-        </div>
-        <!-- ============================================================== -->
-        <!-- end wrapper  -->
-        <!-- ============================================================== -->
-    </div>
-    <!-- ============================================================== -->
-    <!-- end main wrapper  -->
-    <!-- ============================================================== -->
-    <!-- Optional JavaScript -->
-    <!-- jquery 3.3.1 -->
-    <script src="../assets/vendor/jquery/jquery-3.3.1.min.js"></script>
-    <!-- bootstap bundle js -->
-    <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
-    <!-- slimscroll js -->
-    <script src="../assets/vendor/slimscroll/jquery.slimscroll.js"></script>
-    <!-- main js -->
-    <script src="../assets/libs/js/main-js.js"></script>
-    <!-- chart chartist js -->
-    <script src="../assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
-    <!-- sparkline js -->
-    <script src="../assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
-    <!-- morris js -->
-    <script src="../assets/vendor/charts/morris-bundle/raphael.min.js"></script>
-    <script src="../assets/vendor/charts/morris-bundle/morris.js"></script>
-    <!-- chart c3 js -->
-    <script src="../assets/vendor/charts/c3charts/c3.min.js"></script>
-    <script src="../assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
-    <script src="../assets/vendor/charts/c3charts/C3chartjs.js"></script>
-    <script src="../assets/libs/js/dashboard-ecommerce.js"></script>
-    <script src="ckeditor/ckeditor.js"></script>
-    <script>
-        CKEDITOR.replace( 'ckeditor' );
-    </script>
-</body>
- 
-</html>
+<?php 
+        // footer
+        include('includes/footer.php');
+    }
+    else
+    {
+        echo "<script> location.href='dang-nhap.php'; </script>";
+    }
+?>
+
+
+
+
