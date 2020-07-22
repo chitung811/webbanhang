@@ -48,6 +48,8 @@
 				echo "<script>location.href='gio-hang.html';</script>";
 			}
 		}
+		
+		
 	}
 	else
 	{
