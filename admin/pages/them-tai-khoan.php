@@ -19,8 +19,8 @@
             $target_dir = "public/images/avatars/";
             $name = $_POST['name'];
             $email_reg = $_POST['email_reg'];
-            $password = $_POST['password'];
-            $repass = $_POST['repass'];
+            $password = md5($_POST['password']);
+            $repass = md5($_POST['repass']);
             $phone = $_POST['phone'];
             $address = $_POST['address'];
             $date_create = date("Y-m-d H:i:s");
@@ -86,7 +86,6 @@
                     }
                     else
                     {
-						
                         if($password != $repass)
                         {
                             echo "<script>alert('Mật khẩu không trùng nhau!.');</script>";
