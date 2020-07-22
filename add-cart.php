@@ -77,6 +77,5 @@
 	}
 	else
 	{
-		echo "<script>location.href='dang-nhap.html'</script>";
-	}
+		echo "<script>location.href='dang-nhap.html'</script>";}
 ?>
