@@ -1,282 +1,67 @@
+<?php 
+    
+    // open session
+    session_start();
 
-<!doctype html>
-<html lang="en">
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Quản trị - Website bán hàng</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
-    <link href="assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/libs/css/style.css">
-    <link rel="stylesheet" href="assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
-    <link rel="stylesheet" href="assets/vendor/charts/chartist-bundle/chartist.css">
-    <link rel="stylesheet" href="assets/vendor/charts/morris-bundle/morris.css">
-    <link rel="stylesheet" href="assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="assets/vendor/charts/c3charts/c3.css">
-    <link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
-
-</head>
-<style type="text/css">
-    body 
+    if(isset($_SESSION['user']) && isset($_SESSION['level']))
     {
-        font-family: 'Roboto Condensed', sans-serif;
-    }
-</style>
+        $level = $_SESSION['level'];
+        $users = $_SESSION['user'];
+        
+        // include
+        include('includes/header.php');
+        include('includes/navbar.php');
+        include('includes/left-sidebar.php');
 
-<div class="dashboard-main-wrapper">
-    <!-- ============================================================== -->
-    <!-- navbar -->
-    <!-- ============================================================== -->
-    <div class="dashboard-header">
-        <nav class="navbar navbar-expand-lg bg-white fixed-top">
-            <a class="navbar-brand" href="#">5T</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse " id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto navbar-right-top">
-                    <li class="nav-item">
-                        <div id="custom-search" class="top-search-bar">
-                            <input class="form-control" type="text" placeholder="Tìm kiếm..">
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown notification">
-                        <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-history"></i><!--<span class='indicator'></span>--></a>
-                        <ul class="dropdown-menu dropdown-menu-right notification-dropdown">
-                            <li>
-                                <div class="notification-title"> Lịch sử </div>
-                                <div class="notification-list">
-                                    <div class="list-group">
-                            
-                                        <a href="#" class="list-group-item list-group-item-action">
-                                            <div class="notification-info">
-                                                <div class="notification-list-user-img"><img src="public/images/avatars/" alt="" class="user-avatar-md rounded-circle"></div>
-                                                <div class="notification-list-user-block">
-                                                    <!--
-                                                    <span class="notification-list-user-name">Jeremy Rakestraw</span>-->
-                                                    
-                                                    <div class="notification-date">
-                                                        
-                                                    </div>
-                                                </div>  
-                                            </div>
-                                        </a>
-                               
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="list-footer"> <a href="#">Xem tất cả</a></div>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--
-                    <li class="nav-item dropdown connection">
-                        <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-fw fa-th"></i> </a>
-                        <ul class="dropdown-menu dropdown-menu-right connection-dropdown">
-                            <li class="connection-list">
-                                <div class="row">
-                                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                        <a href="#" class="connection-item"><img src="assets/images/github.png" alt="" > <span>Github</span></a>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                        <a href="#" class="connection-item"><img src="assets/images/dribbble.png" alt="" > <span>Dribbble</span></a>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                        <a href="#" class="connection-item"><img src="assets/images/dropbox.png" alt="" > <span>Dropbox</span></a>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                        <a href="#" class="connection-item"><img src="assets/images/bitbucket.png" alt=""> <span>Bitbucket</span></a>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                        <a href="#" class="connection-item"><img src="assets/images/mail_chimp.png" alt="" ><span>Mail chimp</span></a>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                        <a href="#" class="connection-item"><img src="assets/images/slack.png" alt="" > <span>Slack</span></a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="conntection-footer"><a href="#">More</a></div>
-                            </li>
-                        </ul>
-                    </li>
-                    -->
-                    <li class="nav-item dropdown nav-user">
-                        <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="public/images/avatars/" alt="" class="user-avatar-md rounded-circle"></a>
-                        <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
-                            <div class="nav-user-info">
-                                <h5 class="mb-0 text-white nav-user-name" style="font-family: 'Roboto Condensed', sans-serif;"></h5>
-                                <span class="status"></span><span class="ml-2">Online</span>
-                            </div>
-                            <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Thông tin cá nhân</a>
-                            <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Đổi mật khẩu</a>
-                            <a class="dropdown-item" href="#"><i class="fas fa-power-off mr-2"></i>Đăng xuất</a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </div>
+        // include function
+        require('modules/functions.php');
 
-    <div class="nav-left-sidebar sidebar-dark">
-        <div class="menu-list">
-            <nav class="navbar navbar-expand-lg navbar-light">
-                <a class="d-xl-none d-lg-none" href="#">Danh mục</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav flex-column">
-                        <li class="nav-divider">
-                            Danh mục
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="index-admin.html" data-toggle="collapse" aria-expanded="false" data-target="#submenu-5" aria-controls="submenu-5"><i class="fas fa-laptop"></i>Trang chính</a>
-                            <div id="submenu-5" class="collapse submenu" style="">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#" target="_blank">Đến website</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Thống kê</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Danh sách hóa đơn</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Danh sách sản phẩm</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Danh sách tài khoản</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="nav-item ">
-                            
-                            <div id="submenu-1" class="collapse submenu" style="">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-1" aria-controls="submenu-1-1">Đầu trang</a>
-                                        <div id="submenu-1-1" class="collapse submenu" style="">
-                                            <ul class="nav flex-column">
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="#">Logo</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="#">Slider</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-3" aria-controls="submenu-1-3">Chân trang</a>
-                                        <div id="submenu-1-3" class="collapse submenu" style="">
-                                            <ul class="nav flex-column">
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="#">Cấu hình</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="sanpham.html" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2"><i class="fas fa-box-open"></i>Sản phẩm</a>
-                            <div id="submenu-2" class="collapse submenu" style="">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Tạo loại sản phẩm</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Upload sản phẩm</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Danh sách sản phẩm</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="admin-blog.html" data-toggle="collapse" aria-expanded="false" data-target="#submenu-3" aria-controls="submenu-3"><i class="far fa-newspaper"></i>Bài viết</a>
-                            <div id="submenu-3" class="collapse submenu" style="">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Tạo loại bài viết</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Đăng bài mới</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Danh sách bài viết</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="nav-link" href="Đơn-hàng.html" data-toggle="collapse" aria-expanded="false" data-target="#submenu-4" aria-controls="submenu-4"><i class="fas fa-file-invoice"></i>Đơn hàng</a>
-                            <div id="submenu-4" class="collapse submenu" style="">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Quản lý đơn hàng</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Đang vận chuyển</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Đơn hàng thu hồi</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Đơn hàng thành công</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        
-                        <li class="nav-divider">
-                            Tài khoản
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#taikhoan-admin.html" data-toggle="collapse" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-user"></i> Tài khoản </a>
-                            <div id="submenu-6" class="collapse submenu" style="">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Thông tin tài khoản</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Danh sách tài khoản</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Đổi mật khẩu</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Đăng xuất</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        
-                    </ul>
-                </div>
-            </nav>
-        </div>
-</div>   
+        // get date from session
+        $session = "SELECT * FROM account WHERE email = '".$users."'";
+        $rs_session = mysqli_query($conn, $session);
+        $row_session = mysqli_fetch_array($rs_session);
+        $id_acc = $row_session['id_acc'];
+        $name_user = $row_session['name'];
+
+        // delete
+        if(isset($_GET['id']))
+        {
+            $target_dir = "public/images/blogs/";
+            $id = $_GET['id'];
+            $sql = "SELECT image, title FROM blog WHERE id_blog = $id";
+            $result = mysqli_query($conn, $sql);
+            $row = mysqli_fetch_array($result);
+            $delname = $row['title'];
+
+            $old_image = $row['image'];
+            $target_file = $target_dir.$old_image;
+            if($old_image != "no-image.jpg")
+            {
+                unlink($target_file);
+            }
+
+            // insert to history
+            $text = " đã xóa bài viết: <b>". $delname . "</b>";
+            $time = date('Y-m-d H:i:s');
+            $ins_his = "INSERT INTO history(text, time, id_acc, flag) VALUES('$text','$time', '$id_acc', 0)";
+            mysqli_query($conn, $ins_his);
+
+            $del = "DELETE FROM blog WHERE id_blog = $id";
+            mysqli_query($conn, $del);
+            echo "<script>alert('Xóa bài viết thành công');</script>";
+            echo "<script>location.href='blog.php';</script>";
+        }
+?>
 <body>
-       
+        <!-- ============================================================== -->
+        <!-- wrapper  -->
+        <!-- ============================================================== -->
         <div class="dashboard-wrapper">
             <div class="dashboard-ecommerce">
                 <div class="container-fluid dashboard-content " >
-                   
+                    <!-- ============================================================== -->
+                    <!-- pageheader  -->
+                    <!-- ============================================================== -->
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="page-header" >
@@ -287,8 +72,8 @@
                                 <div class="page-breadcrumb">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
-                                            <li class="breadcrumb-item"><a href="index-admin.html" class="breadcrumb-link">Trang chính</a></li>
-                                            <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Bài viết</a></li>
+                                            <li class="breadcrumb-item"><a href="index.php" class="breadcrumb-link">Trang chính</a></li>
+                                            <li class="breadcrumb-item"><a href="blog.php" class="breadcrumb-link">Bài viết</a></li>
                                             <li class="breadcrumb-item active" aria-current="page">Danh sách bài viết</li>
                                         </ol>
                                     </nav>
@@ -304,7 +89,7 @@
                             <div class="card">
                                 <h5 class="card-header" style="font-family: 'Roboto Condensed', sans-serif;">Danh sách bài viết
                                     <div class="btn_function float-right">
-                                        <a href="#" class='btn btn-outline-primary'><i class='fas fa-plus'></i> Bài viết</a>
+                                        <a href='upload-blog.php' class='btn btn-outline-primary'><i class='fas fa-plus'></i> Bài viết</a>
                                     </div>
                                 </h5>
                                 <div class="card-body">
@@ -316,7 +101,7 @@
                                                     <th class="border-0" style="font-family: 'Roboto Condensed', sans-serif;">STT</th>
                                                     <th class="border-0" style="font-family: 'Roboto Condensed', sans-serif;">Ảnh</th>
                                                     <th class="border-0" style="font-family: 'Roboto Condensed', sans-serif;">Tiêu đề</th>
-                                                    <!--th class="border-0" style="font-family: 'Roboto Condensed', sans-serif;">Slug</th-->
+                                                     <th class="border-0" style="font-family: 'Roboto Condensed', sans-serif;">Slug</th>
                                                     <th class="border-0" style="font-family: 'Roboto Condensed', sans-serif;">Loại</th>
                                                     <th class="border-0" style="font-family: 'Roboto Condensed', sans-serif;">Ngày đăng</th>
                                                     <th class="border-0" style="font-family: 'Roboto Condensed', sans-serif;">Duyệt</th>
@@ -325,42 +110,113 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                        
+                        <?php 
+                            
+                            // check session 
+                            if($level == 1)
+                            {
+                                $blog = "SELECT id_blog, image, title, date_upload, b.slug as slug, typename, flag FROM blog b, type_blog tb WHERE b.id_type = tb.id_type ORDER BY date_upload DESC";
+                                $rs_blog = mysqli_query($conn, $blog);
+                                $count = 0;
+                                while ($row_blog = mysqli_fetch_array($rs_blog)) 
+                                {
+                                    $count++;
+                        ?>
                                                 <tr>
-                                                    <td>1</td>
+                                                    <td><?php echo $count; ?></td>
                                                     <td>
-                                                        <div class="m-r-10"><img src="./images/banner_project_3.jpg" alt="" class="rounded" width="60"></div>
+                                                        <div class="m-r-10"><img src="public/images/blogs/<?php echo $row_blog['image']; ?>" alt="<?php echo $row_blog['image']; ?>" class="rounded" width="60"></div>
                                                     </td>
-                                                    <td>thời trang cho bé gái</td>
-                                                    <td></td>
-                                                    <td width="10%">fashion</td>
+                                                    <td><?php echo $row_blog['title']; ?></td>
+                                                    <td><?php echo $row_blog['slug']; ?></td>
+                                                    <td width="10%"><?php echo $row_blog['typename']; ?></td>
                                                     <td width="10%">
-                                                    1/1/2020
+                                                    <?php 
+                                                        $date = date_create($row_blog['date_upload']);
+                                                        echo date_format($date, "d-m-Y H:i:s");
+                                                    ?>
                                                     </td>
                                                     <td>
-                                                            Duyệt
+                                                <?php 
+
+                                                    if($row_blog['flag'] == 1)
+                                                    {
+                                                        echo "<a href='modules/flags.php?id=".$row_blog['id_blog']."&tbl=blog' class='btn btn-light'>
+                                                                <i class='fas fa-times'></i>
+                                                            </a>";
+                                                    }
+                                                    else
+                                                    {
+                                                        echo "<a href='modules/flags.php?id=".$row_blog['id_blog']."&tbl=blog' class='btn btn-success'>
+                                                                <i class='fas fa-check'></i>
+                                                            </a>";
+                                                        
+                                                    }
+                                                ?> 
                                                     </td>
-                                                    <td><a href="#" class="btn btn-info"><i class="fas fa-pen-nib"></i></a></td>
-                                                    <td><a href="#" onclick="return confirm('Dữ liệu này sẽ được xóa vĩnh viễn. Đồng ý?');" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a></td>
+                                                    <td><a href="e-upload-blog.php?id=<?php echo $row_blog['id_blog']; ?>" class="btn btn-info"><i class="fas fa-pen-nib"></i></a></td>
+                                                    <td><a href="blog.php?id=<?php echo $row_blog['id_blog']; ?>" onclick="return confirm('Dữ liệu này sẽ được xóa vĩnh viễn. Đồng ý?');" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a></td>
                                                 </tr>
-                       
+                        <?php 
+                                }
+                                // end while
+                            }
+                            else
+                            {
+                                $blog2 = "SELECT id_blog, b.image as image, title, date_upload, b.slug as slug, typename, flag FROM blog b, type_blog tb, account a WHERE b.id_type = tb.id_type AND a.id_acc = b.author AND email = '$users' ORDER BY date_upload DESC";
+                                $rs_blog2 = mysqli_query($conn, $blog2);
+                                $count = 0;
+                                while ($row_blog2 = mysqli_fetch_array($rs_blog2)) 
+                                {
+                                    $count++;
+
+                        ?>
                                                 <tr>
-                                                    <td></td>
+                                                    <td><?php echo $count; ?></td>
                                                     <td>
-                                                        <div class="m-r-10"><img src="" alt="" class="rounded" width="60"></div>
+                                                        <div class="m-r-10"><img src="public/images/blogs/<?php echo $row_blog2['image']; ?>" alt="<?php echo $row_blog2['image']; ?>" class="rounded" width="60"></div>
                                                     </td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td width="10%"></td>
+                                                    <td><?php echo $row_blog2['title']; ?></td>
+                                                    <td><?php echo $row_blog2['slug']; ?></td>
+                                                    <td width="10%"><?php echo $row_blog2['typename']; ?></td>
                                                     <td width="10%">
-                                                    
+                                                    <?php 
+                                                        $date = date_create($row_blog2['date_upload']);
+                                                        echo date_format($date, "d-m-Y H:i:s");
+                                                    ?>
                                                     </td>
                                                     <td>
-                                                
+                                                <?php
+                                                    if($row_blog2['flag'] == 1)
+                                                    {
+                                                        echo "<button type='button' class='btn btn-light' disabled><i class='fas fa-times'></i></button>";
+                                                    }
+                                                    else
+                                                    {
+                                                        echo "<button type='button' class='btn btn-success' disabled><i class='fas fa-check'></i></button>";
+                                                    }
+                                                ?> 
                                                     </td>
-                                                
+                                                <?php 
+
+                                                    if($row_blog2['flag'] == 1)
+                                                    {
+                                                        // da duyet ko duoc sua xoa
+                                                        echo "<td><button type='button' class='btn btn-info' disabled><i class='fas fa-pen-nib'></i></button></td>";
+                                                        echo "<td><button type='button' class='btn btn-danger' disabled><i class='fas fa-trash-alt'></i></button></td>";
+                                                    }
+                                                    else
+                                                    {
+                                                        echo "<td><a href='e-upload-blog.php?id=".$row_blog2['id_blog']."' class='btn btn-info'><i class='fas fa-pen-nib'></i></a></td>";
+                                                        echo "<td><a href='blog.php?id=".$row_blog2['id_blog']."' onclick='return confirm('Dữ liệu này sẽ được xóa vĩnh viễn. Đồng ý?');' class='btn btn-danger'><i class='fas fa-trash-alt'></i></a></td>";
+                                                    }
+                                                ?>
                                                 </tr>
-                       
+                        <?php
+                                }
+                                // end while 2
+                            }
+                        ?>
                                             </tbody>
                                         </table>
                                     </div>
@@ -372,36 +228,12 @@
                     </div>
                 </div>
             </div>
-            
-            
-            
-        </div>
-
-    </div>
-    
-    <script src="../assets/vendor/jquery/jquery-3.3.1.min.js"></script>
-    <!-- bootstap bundle js -->
-    <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
-    <!-- slimscroll js -->
-    <script src="../assets/vendor/slimscroll/jquery.slimscroll.js"></script>
-    <!-- main js -->
-    <script src="../assets/libs/js/main-js.js"></script>
-    <!-- chart chartist js -->
-    <script src="../assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
-    <!-- sparkline js -->
-    <script src="../assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
-    <!-- morris js -->
-    <script src="../assets/vendor/charts/morris-bundle/raphael.min.js"></script>
-    <script src="../assets/vendor/charts/morris-bundle/morris.js"></script>
-    <!-- chart c3 js -->
-    <script src="../assets/vendor/charts/c3charts/c3.min.js"></script>
-    <script src="../assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
-    <script src="../assets/vendor/charts/c3charts/C3chartjs.js"></script>
-    <script src="../assets/libs/js/dashboard-ecommerce.js"></script>
-    <script src="ckeditor/ckeditor.js"></script>
-    <script>
-        CKEDITOR.replace( 'ckeditor' );
-    </script>
-</body>
- 
-</html>
+<?php 
+        // footer
+        include('includes/footer.php');
+    }
+    else
+    {
+        echo "<script> location.href='dang-nhap.php'; </script>";
+    }
+?>
