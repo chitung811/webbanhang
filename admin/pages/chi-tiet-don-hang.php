@@ -185,7 +185,3 @@
         echo "<script> location.href='dang-nhap.php'; </script>";
     }
 ?>
-
-
-
-
