@@ -4,8 +4,6 @@
 
 	// include db
 	require_once('admin/pages/modules/config.php');
-
-
 	if(isset($_SESSION['customer']) && isset($_SESSION['level']))
 	{
 		$email = $_SESSION['customer'];
