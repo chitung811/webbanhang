@@ -98,7 +98,6 @@
                             </div>
                         </div>
                         <!-- col-lg-12 -->
-						
     <?php 
         }
         // end while

@@ -91,7 +91,6 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-											
     <?php
 
         $invoice = "SELECT code_invoice, order_date, info_receive, info_product, name, address, phone  FROM invoice inv, account a WHERE inv.id_customer = a.id_acc AND flag = 2 ORDER BY order_date DESC";
